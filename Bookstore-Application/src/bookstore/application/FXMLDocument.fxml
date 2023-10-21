@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" styleClass="white-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.FXMLDocumentController">
+   <left>
+      <VBox prefHeight="810.0" prefWidth="261.0" style="-fx-background-color: faf3f1; -fx-border-color: ;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox />
+            <Label prefHeight="28.0" prefWidth="94.0" text="Genre">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" prefHeight="48.0" prefWidth="261.0" text="Fiction">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="55.0" prefHeight="48.0" prefWidth="261.0" text="Novel">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="55.0" prefHeight="48.0" prefWidth="261.0" text="Science Fiction">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="103.0" prefHeight="48.0" prefWidth="261.0" text="Fantasy">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="247.0" prefHeight="48.0" prefWidth="261.0" text="Non-fiction">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="493.0" prefHeight="48.0" prefWidth="261.0" text="Mystery">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="541.0" prefHeight="48.0" prefWidth="261.0" text="Thriller">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="295.0" prefHeight="48.0" prefWidth="261.0" text="Comics">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton alignment="BOTTOM_LEFT" focusTraversable="false" layoutX="10.0" layoutY="391.0" prefHeight="48.0" prefWidth="261.0" text="Children's Books">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="66.0" prefWidth="1103.0" style="-fx-background-color: faf3f1;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton focusTraversable="false" prefHeight="66.0" prefWidth="214.0" text="Book Store">
+               <graphic>
+                  <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Fox_River_Paper_logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+            <Pane prefHeight="50.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="500.0">
+               <children>
+                  <TextField fx:id="searchBar" focusTraversable="false" prefHeight="32.0" prefWidth="427.0" promptText="Search" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <JFXButton ellipsisString="" focusTraversable="false" prefHeight="35.0" prefWidth="30.0" stylesheets="@styles.css">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="26.0" right="6.0" top="6.0" />
+               </padding>
+            </HBox>
+            <Pane minWidth="-Infinity" prefHeight="50.0" prefWidth="246.0" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" layoutX="410.0" layoutY="25.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="133.0">
+               <children>
+                  <JFXButton focusTraversable="false" text="Guest">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="62.0" prefWidth="221.0" text="Recently Added">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <ScrollPane focusTraversable="false" pannable="true" prefHeight="264.0" prefWidth="200.0" stylesheets="@styles.css">
+               <content>
+                  <HBox fx:id="cardLayout" focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
+               </content>
+               <styleClass>
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+            </ScrollPane>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="221.0" text="Most Popular">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <ScrollPane focusTraversable="false" layoutX="10.0" layoutY="80.0" pannable="true" prefHeight="264.0" prefWidth="200.0" stylesheets="@styles.css">
+               <content>
+                  <HBox focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
+               </content>
+               <styleClass>
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
