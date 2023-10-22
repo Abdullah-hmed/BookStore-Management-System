@@ -51,17 +51,17 @@ public class FXMLDocumentController implements Initializable {
     }    
     public List<Book> recentlyAdded (){
         List<Book> bookList = new ArrayList<>();
-        Book book = new Book("A Street Cat Named Bob","James Bowen","BookCovers/0000001.jpg");
+        Book book = new Book("A Street Cat Named Bob","James Bowen","BookCover/0000001.jpg");
         bookList.add(book);
-        book = new Book("Animal Farm","George Orwell","0000003.jpg");
+        book = new Book("Animal Farm","George Orwell","BookCover/0000003.jpg");
         bookList.add(book);
-        book = new Book("Into Thin Air","Jon Krakauer","0000005.jpg");
+        book = new Book("Into Thin Air","Jon Krakauer","BookCover/0000005.jpg");
         bookList.add(book);
-        book = new Book("The Dry","Jane Harper","0000007.jpg");
+        book = new Book("The Dry","Jane Harper","BookCover/0000007.jpg");
         bookList.add(book);
-        book = new Book("The Hidden Life of Trees","Peter Wohlleben","0000009.jpg");
+        book = new Book("The Hidden Life of Trees","Peter Wohlleben","BookCover/0000009.jpg");
         bookList.add(book);
-        book = new Book("World War Z","Max Brooks","0000187.jpg");
+        book = new Book("World War Z","Max Brooks","BookCover/0000187.jpg");
         bookList.add(book);
         return bookList;
     }
