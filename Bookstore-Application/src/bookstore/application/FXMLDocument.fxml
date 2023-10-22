@@ -17,7 +17,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" styleClass="white-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.FXMLDocumentController">
    <left>
-      <VBox prefHeight="810.0" prefWidth="261.0" style="-fx-background-color: faf3f1; -fx-border-color: ;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="810.0" prefWidth="261.0" style="-fx-background-color: faf3f1;" BorderPane.alignment="CENTER">
          <children>
             <VBox />
             <Label prefHeight="28.0" prefWidth="94.0" text="Genre">
@@ -174,9 +174,9 @@
                   <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </Label>
-            <ScrollPane focusTraversable="false" pannable="true" prefHeight="264.0" prefWidth="200.0" stylesheets="@styles.css">
+            <ScrollPane fx:id="scrollPaneRecent" focusTraversable="false" pannable="true" prefHeight="269.0" prefWidth="1054.0" stylesheets="@styles.css">
                <content>
-                  <HBox fx:id="cardLayout" focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
+                  <HBox fx:id="cardLayoutRA" focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
                </content>
                <styleClass>
                   <String fx:value="decrement-button" />
@@ -195,7 +195,7 @@
             </Label>
             <ScrollPane focusTraversable="false" layoutX="10.0" layoutY="80.0" pannable="true" prefHeight="264.0" prefWidth="200.0" stylesheets="@styles.css">
                <content>
-                  <HBox focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
+                  <HBox fx:id="cardLayoutMP" focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
                </content>
                <styleClass>
                   <String fx:value="decrement-button" />

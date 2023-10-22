@@ -1,16 +1,29 @@
 package bookstore.application.Model;
+
+
+import java.util.Random;
+
 public class Book {
     private String bookName;
     private String bookSrc;
     private String bookAuthor;
-
-    public Book(String bookName, String bookAuthor, String bookSrc) {
+    private int price;
+    
+    public Book(String bookName, String bookAuthor, String bookSrc, int price) {
         this.bookName = bookName;
         this.bookSrc = bookSrc;
         this.bookAuthor = bookAuthor;
+        this.price = price;
+    }
+    Random random = new Random();
+
+    public float getPrice() {
+        return price;
     }
 
-    
+    public void setPrice(int price) {
+        this.price = price;
+    }
     
     public String getBookName() {
         return bookName;
@@ -35,6 +48,12 @@ public class Book {
     public void setBookAuthor(String bookAuthor) {
         this.bookAuthor = bookAuthor;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" + "bookName=" + bookName + ", bookSrc=" + bookSrc + ", bookAuthor=" + bookAuthor + ", price=" + price + ", random=" + random + '}';
+    }
     
 
+    
 }

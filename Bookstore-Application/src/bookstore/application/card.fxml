@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.cardController">
+<HBox fx:id="card" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#DisplayBook" prefHeight="250.0" prefWidth="480.0" spacing="15.0" styleClass="HBox" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.cardController">
    <children>
-      <ImageView fx:id="bookImage" fitHeight="155.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@BookCovers/0000001.jpg" />
-         </image>
+      <ImageView fx:id="bookImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#00000084" height="46.8" radius="22.52" width="45.28" />
          </effect>
@@ -31,7 +27,15 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Label fx:id="bookPrice" layoutX="10.0" layoutY="143.0" prefHeight="31.0" prefWidth="252.0" text="Rs 1000">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
    </children>
+   <padding>
+      <Insets left="18.0" />
+   </padding>
 </HBox>
