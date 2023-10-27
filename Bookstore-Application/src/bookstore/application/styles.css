@@ -7,7 +7,6 @@
     
 }
 
-
 .scroll-pane {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
@@ -23,14 +22,14 @@
 
 
 .scroll-pane .scroll-bar:horizontal .thumb {
-    -fx-background-color: #e0dad7; /* Set the thumb color (change to your desired color) */
+    -fx-background-color: #e0dad7;
     -fx-background-insets: 0;
 }
 
 
 .scroll-pane .scroll-bar:horizontal .increment-button,
 .scroll-pane .scroll-bar:horizontal .decrement-button {
-    -fx-background-color: #fbf6f4; /* Set the button color (change to your desired color) */
+    -fx-background-color: #fbf6f4;
 }
 
 .HBox {

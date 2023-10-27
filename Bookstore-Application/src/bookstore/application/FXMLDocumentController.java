@@ -6,12 +6,16 @@
 package bookstore.application;
 
 import bookstore.application.Model.Book;
+import bookstore.application.Model.Database;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,9 +28,7 @@ import javafx.scene.layout.HBox;
  * @author SC
  */
 public class FXMLDocumentController implements Initializable {
-    
-    Random rnd = new Random();
-    
+        
     @FXML
     private TextField searchBar;
     
@@ -41,13 +43,20 @@ public class FXMLDocumentController implements Initializable {
     private List<Book> recentlyAdded;
     private List<Book> mostPopular;
     
-
+    Database database = new Database();
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        recentlyAdded = new ArrayList<>(recentlyAdded());
-        mostPopular = new ArrayList<>(mostPopular());
+        try {
+            database.connect(); //database connection established
+        } catch (SQLException ex) {
+            System.out.println("Database not connected successfully");
+            ex.printStackTrace();
+        }
+        
+        recentlyAdded = new ArrayList<>(database.recentlyAdded());
+        mostPopular = new ArrayList<>(database.mostPopular());
         try {
             for(int i=0;i<recentlyAdded.size();i++){
                 FXMLLoader fxmlloader = new FXMLLoader();
@@ -71,41 +80,4 @@ public class FXMLDocumentController implements Initializable {
         
         
     }    
-    public List<Book> recentlyAdded (){ //ArrayList containing all the books to be added into the Recently Added ScrollPane
-        List<Book> bookList = new ArrayList<>();
-        Book book = new Book("A Street Cat Named Bob","James Bowen","BookCover/0000001.jpg", 400);
-        bookList.add(book);
-        book = new Book("Animal Farm","George Orwell","BookCover/0000003.jpg", 800);
-        bookList.add(book);
-        book = new Book("Into Thin Air","Jon Krakauer","BookCover/0000005.jpg", 300);
-        bookList.add(book);
-        book = new Book("The Dry","Jane Harper","BookCover/0000007.jpg", 600);
-        bookList.add(book);
-        book = new Book("The Hidden Life of Trees","Peter Wohlleben","BookCover/0000009.jpg", 700);
-        bookList.add(book);
-        book = new Book("World War Z","Max Brooks","BookCover/0000187.jpg", 1000);
-        bookList.add(book);
-        return bookList;
-    }
-    
-        
-    public List<Book> mostPopular (){ //ArrayList containing all the books to be added into the Most Popular ScrollPane
-        List<Book> bookList = new ArrayList<>();
-        Book book = new Book("World War Z","Max Brooks","BookCover/0000187.jpg", 1000);
-        bookList.add(book);
-        book = new Book("Animal Farm","George Orwell","BookCover/0000003.jpg", 800);
-        bookList.add(book);
-        book = new Book("A Street Cat Named Bob","James Bowen","BookCover/0000001.jpg", 400);
-        bookList.add(book);
-        book = new Book("Into Thin Air","Jon Krakauer","BookCover/0000005.jpg", 300);
-        bookList.add(book);
-        book = new Book("The Dry","Jane Harper","BookCover/0000007.jpg", 600);
-        bookList.add(book);
-        book = new Book("The Hidden Life of Trees","Peter Wohlleben","BookCover/0000009.jpg", 700);
-        bookList.add(book);
-        
-        return bookList;
-    }
-
-    
 }

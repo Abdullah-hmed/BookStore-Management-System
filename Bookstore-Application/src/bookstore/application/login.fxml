@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.Login">
-    <VBox spacing="10" alignment="CENTER">
-        <Label text="Login" style="-fx-font-size: 18px;" />
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.LoginController">
+    <VBox alignment="CENTER" spacing="10">
+        <Label style="-fx-font-size: 18px;" text="Login" />
         <GridPane hgap="10" vgap="5">
             <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
             <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
             <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
-        <Button text="Login" onAction="#loginAction" />
+        <Button onAction="#loginAction" text="Login" />
     </VBox>
 </AnchorPane>
-
-
-

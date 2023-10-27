@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  *
  * @author Alli
  */
-public class Login {
+public class LoginController {
     
 
 

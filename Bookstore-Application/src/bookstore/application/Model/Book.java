@@ -5,11 +5,11 @@ import java.util.Random;
 
 public class Book {
     private String bookName;
-    private String bookSrc;
+    private byte[] bookSrc;
     private String bookAuthor;
     private int price;
     
-    public Book(String bookName, String bookAuthor, String bookSrc, int price) {
+    public Book(String bookName, String bookAuthor, byte[] bookSrc, int price) {
         this.bookName = bookName;
         this.bookSrc = bookSrc;
         this.bookAuthor = bookAuthor;
@@ -33,11 +33,11 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public String getBookSrc() {
+    public byte[] getBookSrc() {
         return bookSrc;
     }
 
-    public void setBookSrc(String bookSrc) {
+    public void setBookSrc(byte[] bookSrc) {
         this.bookSrc = bookSrc;
     }
 
@@ -48,12 +48,4 @@ public class Book {
     public void setBookAuthor(String bookAuthor) {
         this.bookAuthor = bookAuthor;
     }
-
-    @Override
-    public String toString() {
-        return "Book{" + "bookName=" + bookName + ", bookSrc=" + bookSrc + ", bookAuthor=" + bookAuthor + ", price=" + price + ", random=" + random + '}';
-    }
-    
-
-    
 }
