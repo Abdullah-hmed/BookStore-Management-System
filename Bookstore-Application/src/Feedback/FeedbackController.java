@@ -19,9 +19,17 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
+<<<<<<< HEAD
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+=======
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javafx.fxml.Initializable;
+>>>>>>> 7f208848f849ddf092b4ae6fb36fcc0a06b2068a
 
 public class FeedbackController {
 
