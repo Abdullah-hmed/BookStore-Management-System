@@ -9,16 +9,19 @@ package Feedback;
  *
  * @author Laiba Asif
  */
+
+
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
+import javafx.fxml.FXML;
 import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class FeedbackController {
 
@@ -30,8 +33,6 @@ public class FeedbackController {
     private TextField emailTextField;
     @FXML
     private TextField feedbackTextField;
-    @FXML
- 
 
     private Stage stage;
 
@@ -45,7 +46,6 @@ public class FeedbackController {
         String phone = phoneTextField.getText();
         String email = emailTextField.getText();
         String feedback = feedbackTextField.getText();
-       
 
         // Create a Feedback object and set the values
         Feedback userFeedback = new Feedback();
@@ -53,24 +53,20 @@ public class FeedbackController {
         userFeedback.setPhone(phone);
         userFeedback.setEmail(email);
         userFeedback.setFeedback(feedback);
-      
 
         // Process the user feedback (e.g., save to a database)
         processFeedback(userFeedback);
 
-        // Clear the text fields and rating control
+        // Clear the text fields
         nameTextField.clear();
         phoneTextField.clear();
         emailTextField.clear();
         feedbackTextField.clear();
-     
     }
 
     private void processFeedback(Feedback feedback) {
-        // Save the feedback to a database
-       
-            // Set up the database connection
-
-    
-}
+        // Implement the logic to save feedback to a database or perform other actions.
+        // Set up a database connection and save the feedback data.
+        // You can also work with the `stage` here if needed.
+    }
 }

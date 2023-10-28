@@ -16,8 +16,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class FeedbackGUI extends Application {
 
     public static void main(String[] args) {
@@ -25,15 +23,21 @@ public class FeedbackGUI extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("User Feedback");
 
-        // Load the FXML file
-        Parent root = FXMLLoader.load(getClass().getResource("feedback.fxml"));
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Feedback/feedback.fxml"));
+            Parent root = loader.load();
 
-        // Set up the scene
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            // Set up the scene
+            Scene scene = new Scene(root, 400, 300);
+
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

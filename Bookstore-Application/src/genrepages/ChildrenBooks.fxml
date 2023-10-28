@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="genrepages.ChildrenBooksController"
+            prefWidth="800" prefHeight="600">
+
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Children Books" styleClass="header-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <ListView fx:id="fictionListView" styleClass="list-view"/>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+</BorderPane>

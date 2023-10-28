@@ -9,6 +9,16 @@ package genrepages;
  *
  * @author Alli
  */
-public class ThrillerController {
-    
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import java.net.URL;
+import java.util.ResourceBundle;
+public class ThrillerController implements Initializable {
+     
+    public ListView<String> fictionListView;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+       
+    }
 }
