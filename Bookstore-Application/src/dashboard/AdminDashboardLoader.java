@@ -9,6 +9,7 @@ package dashboard;
  *
  * @author Alli
  */
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,19 +24,14 @@ public class AdminDashboardLoader extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminDashboard.fxml"));
-            Parent root = loader.load();
+    public void start(Stage primaryStage) throws Exception {
+            Parent root = FXMLLoader.load(getClass().getResource("AdminDashboard.fxml"));
 
             Scene scene = new Scene(root, 800, 600);
 
             primaryStage.setTitle("Bookstore Management System - Admin Dashboard");
             primaryStage.setScene(scene);
             primaryStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
 

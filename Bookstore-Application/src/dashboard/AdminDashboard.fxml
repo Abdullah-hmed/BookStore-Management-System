@@ -1,49 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="dashboard.AdminDashboardLoader"
-            prefWidth="800" prefHeight="600">
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@styles2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.AdminDashboardLoader">
 
     <top>
         <VBox alignment="CENTER" spacing="10">
-            <Label text="Admin Dashboard" styleClass="header-label"/>
+            <Label styleClass="header-label" text="Admin Dashboard" />
         </VBox>
     </top>
 
     <left>
         <VBox spacing="10">
-            <Label text="Recent Sales" styleClass="section-label"/>
-            <ListView fx:id="recentSalesListView"/>
+            <Label styleClass="section-label" text="Recent Sales" />
+            <ListView fx:id="recentSalesListView" />
         </VBox>
     </left>
 
     <center>
-        <VBox spacing="10" alignment="CENTER">
-            <Label text="Inventory" styleClass="section-label"/>
+        <VBox alignment="CENTER" spacing="10">
+            <Label styleClass="section-label" text="Inventory" />
             <TableView fx:id="inventoryTableView">
                 <columns>
-                    <TableColumn text="ISBN" prefWidth="100"/>
-                    <TableColumn text="Title" prefWidth="250"/>
-                    <TableColumn text="Author" prefWidth="150"/>
-                    <TableColumn text="Quantity" prefWidth="100"/>
-                    <TableColumn text="Price" prefWidth="100"/>
+                    <TableColumn prefWidth="100" text="ISBN" />
+                    <TableColumn prefWidth="250" text="Title" />
+                    <TableColumn prefWidth="150" text="Author" />
+                    <TableColumn prefWidth="100" text="Quantity" />
+                    <TableColumn prefWidth="100" text="Price" />
                 </columns>
             </TableView>
         </VBox>
     </center>
- 
-<stylesheets>
-    <URL value="styles2.css"/>
-</stylesheets>
 
 </BorderPane>
-
-
