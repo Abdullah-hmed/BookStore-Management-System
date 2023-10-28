@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="dashboard.AdminDashboardLoader"
+            prefWidth="800" prefHeight="600">
+
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Admin Dashboard" styleClass="header-label"/>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox spacing="10">
+            <Label text="Recent Sales" styleClass="section-label"/>
+            <ListView fx:id="recentSalesListView"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Inventory" styleClass="section-label"/>
+            <TableView fx:id="inventoryTableView">
+                <columns>
+                    <TableColumn text="ISBN" prefWidth="100"/>
+                    <TableColumn text="Title" prefWidth="250"/>
+                    <TableColumn text="Author" prefWidth="150"/>
+                    <TableColumn text="Quantity" prefWidth="100"/>
+                    <TableColumn text="Price" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+ 
+<stylesheets>
+    <URL value="styles2.css"/>
+</stylesheets>
+
+</BorderPane>
+
+

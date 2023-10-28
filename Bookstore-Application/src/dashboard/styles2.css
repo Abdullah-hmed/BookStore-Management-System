@@ -1,0 +1,59 @@
+/* Style for the header label */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+/* Style for section labels (e.g., Recent Sales, Inventory) */
+.section-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+/* Style for the ListView (Recent Sales) */
+#recentSalesListView {
+    -fx-pref-width: 250px;
+    -fx-pref-height: 300px;
+    -fx-font-size: 14px;
+}
+
+/* Style for the TableView (Inventory) */
+#inventoryTableView {
+    -fx-pref-width: 600px;
+    -fx-pref-height: 400px;
+    -fx-font-size: 14px;
+}
+
+/* Style for the table columns in the TableView */
+.table-column {
+    -fx-alignment: CENTER;
+}
+
+/* Style for the odd and even rows in the TableView */
+.table-row-cell:odd {
+    -fx-background-color: #f0f0f0;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Style for selected items in the ListView and TableView */
+.list-cell:filled:selected, .table-row-cell:filled:selected {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: white;
+}
+
+/* Style for hover effect on list items */
+.list-cell:filled:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Style for hover effect on table rows */
+.table-row-cell:filled:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Customize further based on your design preferences */
