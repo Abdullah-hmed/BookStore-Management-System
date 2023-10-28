@@ -10,6 +10,7 @@ package bookstore.application;
  * @author Alli
  */
 
+import bookstore.application.user.UserAuthentication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -18,15 +19,15 @@ import javafx.scene.control.TextField;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 /**
  *
  * @author Alli
  */
-public class LoginController {
-    
 
+public class LoginController {
 
     @FXML
     private TextField usernameField;
@@ -37,32 +38,40 @@ public class LoginController {
     @FXML
     private Button loginButton;
 
+    private UserAuthentication userAuth;
+
+    public LoginController() {
+        userAuth = new UserAuthentication(); // Create an instance of UserAuthentication
+    }
+
     @FXML
     public void loginAction() {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        
-        if (isValidUser(username, password)) {
-
-            System.out.println("Login successful");
+        if (userAuth.login(username, password)) {
+            // Login successful
+            showAlert("Login Successful", "Welcome, " + username + "!");
         } else {
-            
-            System.out.println("Login failed");
+            // Login failed
+            showAlert("Login Failed", "Invalid username or password.");
         }
     }
 
-    private boolean isValidUser(String username, String password) {
-      
-        return "user".equals(username) && "password".equals(password);
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
+}
     
     
 
 
 
  
-}
 
 
 
