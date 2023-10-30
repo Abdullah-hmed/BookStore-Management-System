@@ -8,7 +8,8 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="genrepages.NonFictionC"
-            prefWidth="800" prefHeight="600">
+            prefWidth="800" prefHeight="600"
+            stylesheets="@styles.css">
 
     <top>
         <VBox alignment="CENTER" spacing="10">
@@ -21,8 +22,4 @@
             <ListView fx:id="fictionListView" styleClass="list-view"/>
         </VBox>
     </center>
-
-    <stylesheets>
-        <URL value="@styles.css"/>
-    </stylesheets>
 </BorderPane>

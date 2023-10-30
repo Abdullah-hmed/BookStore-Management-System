@@ -7,6 +7,7 @@ package bookstore.application;
 
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -16,12 +17,19 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -39,13 +47,38 @@ public class FXMLDocumentController implements Initializable {
     private HBox cardLayoutRA;
 
     @FXML
+    private JFXButton UserButton;
+    
+    @FXML
+    private MenuItem loginOption;
+
+    @FXML
+    private MenuItem signinOption;
+    
+    @FXML
     private HBox cardLayoutMP;
     private List<Book> recentlyAdded;
     private List<Book> mostPopular;
     
     Database database = new Database();
     
+    @FXML
+    void loginUser(ActionEvent event) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Login");
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+        
+    }
 
+    @FXML
+    void registerUser(ActionEvent event) {
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -79,5 +112,5 @@ public class FXMLDocumentController implements Initializable {
         }
         
         
-    }    
+    }
 }
