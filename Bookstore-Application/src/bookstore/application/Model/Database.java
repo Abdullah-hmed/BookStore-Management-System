@@ -59,4 +59,26 @@ public class Database {
         return bookList;
     }
     
+    public List<Book> ByGenre(String genre) {
+    List<Book> bookList = new ArrayList<>();
+    String query = "SELECT * FROM `books` WHERE `Genre` =   ORDER BY `DateAdded` ASC LIMIT 5";
+
+    try (Connection connection = connect();
+        PreparedStatement statement = connection.prepareStatement(query)) {
+        
+        statement.setString(1, genre);
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {                
+            bookList.add(new Book(resultSet.getString("BookName"), resultSet.getString("Author"), resultSet.getBytes("Picture"), resultSet.getInt("Price")));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return bookList;
+}
+
+
+ 
 }
