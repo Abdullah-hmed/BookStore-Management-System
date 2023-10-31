@@ -1,59 +1,47 @@
-/* Style for the header label */
-.header-label {
+/* Define the style for the header label */
+.label.header-label {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-padding: 10px;
+    -fx-text-fill: #336699; /* Text color */
 }
 
-/* Style for section labels (e.g., Recent Sales, Inventory) */
-.section-label {
+/* Define the style for the section label */
+.label.section-label {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
-    -fx-padding: 10px;
+    -fx-text-fill: #009900; /* Text color */
 }
 
-/* Style for the ListView (Recent Sales) */
-#recentSalesListView {
-    -fx-pref-width: 250px;
-    -fx-pref-height: 300px;
+/* Define the style for the ListView */
+.list-view {
     -fx-font-size: 14px;
 }
 
-/* Style for the TableView (Inventory) */
-#inventoryTableView {
-    -fx-pref-width: 600px;
-    -fx-pref-height: 400px;
+/* Define the style for the TableView */
+.table-view {
     -fx-font-size: 14px;
 }
 
-/* Style for the table columns in the TableView */
-.table-column {
-    -fx-alignment: CENTER;
+/* Define the style for table column headers */
+.table-view .column-header {
+    -fx-font-weight: bold;
+    -fx-background-color: #333333; /* Header background color */
+    -fx-text-fill: white; /* Header text color */
 }
 
-/* Style for the odd and even rows in the TableView */
-.table-row-cell:odd {
-    -fx-background-color: #f0f0f0;
+/* Define the style for alternating rows in the TableView */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f2f2f2; /* Alternating row background color */
 }
 
-.table-row-cell:even {
-    -fx-background-color: #e0e0e0;
+/* Define the style for even rows in the TableView */
+.table-view .table-row-cell:even {
+    -fx-background-color: #ffffff; /* Even row background color */
 }
 
-/* Style for selected items in the ListView and TableView */
-.list-cell:filled:selected, .table-row-cell:filled:selected {
-    -fx-background-color: #0078d4;
-    -fx-text-fill: white;
+/* Define the style for the selected row in the TableView */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #336699; /* Selected row background color */
+    -fx-text-fill: white; /* Selected row text color */
 }
 
-/* Style for hover effect on list items */
-.list-cell:filled:hover {
-    -fx-background-color: #e0e0e0;
-}
-
-/* Style for hover effect on table rows */
-.table-row-cell:filled:hover {
-    -fx-background-color: #f0f0f0;
-}
-
-/* Customize further based on your design preferences */
