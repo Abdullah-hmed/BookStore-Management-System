@@ -9,40 +9,49 @@ package bookstore.application.user;
  *
  * @author Laiba Asif
  */
+import bookstore.application.Model.Database;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserAuthentication {
     private Map<String, User> users;
+    Database database = new Database();
 
     public UserAuthentication() {
         users = new HashMap<>();
+        try {
+            database.connect();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserAuthentication.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public boolean register(User user) {
-        if (users.containsKey(user.getUsername())) {
-            return false; // User already exists, registration failed
+    public void register(User user) {
+        if(!usernameAvailable(user.getUsername()) && emailValidation(user.getEmail()) && passwordValidation(user.getPassword())){
+            System.out.println("Making account");
+            boolean registered = database.registerUser(user);
+            
+            if(registered){
+                System.out.println("Account has been registered");
+            }
+            else{
+                System.out.println("Account did not register");
+            }
         }
 
-        String hashedPassword = hashPassword(user.getPassword());
-        user.setPassword(hashedPassword);
-
-        users.put(user.getUsername(), user);
-        return true; // Registration successful
+        
     }
 
     public boolean login(String username, String password) {
-        if (!users.containsKey(username)) {
-            return false; // User does not exist, login failed
-        }
-
-        User user = users.get(username);
-        String hashedPassword = hashPassword(password);
-
-        return user.getPassword().equals(hashedPassword);
+        return database.loginUser(username, password);
     }
 
     private String hashPassword(String password) {
@@ -63,14 +72,19 @@ public class UserAuthentication {
         return null;
     }
 
-    public static void main(String[] args) {
-        UserAuthentication userAuth = new UserAuthentication();
-        
-        // Register a user
-        User user = new User("john", "123");
-        
-      
-        boolean registrationSuccess = userAuth.register(user);
+    public boolean emailValidation(String email){
+        String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+    
+    public boolean passwordValidation(String password){
+        return password.length() >= 5;
+    }
 
-}}
+    public boolean usernameAvailable(String username){
+        return database.doesUserExist(username);
+    }
+}
 
