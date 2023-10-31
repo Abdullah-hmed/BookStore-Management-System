@@ -11,13 +11,15 @@ package bookstore.application.user;
  */
 public class User {
     
-	  private String username;
-	  private String password;
-	  private String firstname;
-	  private String lastname;
-	  private String email;
-	  private String address;
-	  private int phone;
+    private String username = "NULL";
+    private String password = "NULL";
+    private String firstname = "NULL";
+    private String lastname = "NULL";
+    private String email = "NULL";
+    private String address = "NULL";
+    private String phone;
+          
+          
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -36,43 +38,43 @@ public class User {
     }
 
 
-	  public String getFirstname() {
-	  return firstname;
-	  }
+    public String getFirstname() {
+        return firstname;
+    }
 
-	  public void setFirstname(String firstname) {
-	  this.firstname = firstname;
-	  }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-	  public String getLastname() {
-	  return lastname;
-	  }
+    public String getLastname() {
+        return lastname;
+    }
 
-	  public void setLastname(String lastname) {
-	  this.lastname = lastname;
-	  }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-	  public String getEmail() {
-	  return email;
-	  }
+    public String getEmail() {
+        return email;
+    }
 
-	  public void setEmail(String email) {
-	  this.email = email;
-	  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	  public String getAddress() {
-	  return address;
-	  }
+    public String getAddress() {
+        return address;
+    }
 
-	  public void setAddress(String address) {
-	  this.address = address;
-	  }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	  public int getPhone() {
-	  return phone;
-	  }
+    public String getPhone() {
+        return phone;
+    }
 
-	  public void setPhone(int phone) {
-	  this.phone = phone;
-	  }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }

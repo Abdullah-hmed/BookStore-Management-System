@@ -145,7 +145,7 @@
             <Pane minWidth="-Infinity" prefHeight="50.0" prefWidth="246.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER" layoutX="410.0" layoutY="25.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="133.0">
                <children>
-                  <JFXButton focusTraversable="false" text="Guest">
+                  <JFXButton fx:id="UserButton" focusTraversable="false" prefHeight="46.0" prefWidth="97.0" text="Guest">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -157,10 +157,9 @@
                         <Font size="16.0" />
                      </font>
                      <contextMenu>
-                        <ContextMenu>
+                        <ContextMenu fx:id="contextMenu">
                           <items>
-                            <MenuItem mnemonicParsing="false" onAction="#loginUser" text="Login" />
-                              <MenuItem mnemonicParsing="false" onAction="#registerUser" text="Sign Up" />
+                              <MenuItem mnemonicParsing="false" onAction="#loginUser" text="Sign In" />
                           </items>
                         </ContextMenu>
                      </contextMenu>

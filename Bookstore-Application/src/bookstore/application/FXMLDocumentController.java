@@ -23,10 +23,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -37,6 +39,7 @@ import javafx.stage.StageStyle;
  */
 public class FXMLDocumentController implements Initializable {
         
+  
     @FXML
     private TextField searchBar;
     
@@ -50,10 +53,7 @@ public class FXMLDocumentController implements Initializable {
     private JFXButton UserButton;
     
     @FXML
-    private MenuItem loginOption;
-
-    @FXML
-    private MenuItem signinOption;
+    public ContextMenu contextMenu;
     
     @FXML
     private HBox cardLayoutMP;
@@ -71,14 +71,11 @@ public class FXMLDocumentController implements Initializable {
         stage.setTitle("Login");
         stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
         stage.show();
         
     }
 
-    @FXML
-    void registerUser(ActionEvent event) {
-
-    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
