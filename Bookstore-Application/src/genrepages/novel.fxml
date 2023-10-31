@@ -7,7 +7,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="genrepages.FictionController"
+            fx:controller="genrepages.novelcontroller"
             prefWidth="800" prefHeight="600"
             stylesheets="@styles.css">
 

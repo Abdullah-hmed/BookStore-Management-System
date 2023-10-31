@@ -3,8 +3,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
 
-<BorderPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@styles.css" fx:controller="genrepages.ChildrenBooksController">
+<BorderPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="genrepages.ChildrenBooksController">
+    <!-- Include the CSS stylesheet in your FXML -->
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
 
     <top>
         <VBox alignment="CENTER" spacing="10">
@@ -16,3 +21,4 @@
         <VBox alignment="CENTER" spacing="10" />
     </center>
 </BorderPane>
+

@@ -22,4 +22,5 @@
             <ListView fx:id="fictionListView" styleClass="list-view"/>
         </VBox>
     </center>
+</BorderPane>
 
