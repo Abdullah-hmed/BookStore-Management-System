@@ -81,9 +81,9 @@ public class LoginController {
     
     @FXML
     void LoginUser(ActionEvent event) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
-        root = loader.load();
-        FXMLDocumentController fxdoc = loader.getController();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+//        root = loader.load();
+//        FXMLDocumentController fxdoc = loader.getController();
         String username = usernameField.getText();
         String password = passwordField.getText();
         if (userAuth.login(username, password)) {
