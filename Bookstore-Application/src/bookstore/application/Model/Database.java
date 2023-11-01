@@ -60,7 +60,6 @@ public class Database {
         return bookList;
     }
     
-<<<<<<< HEAD
     public List<Book> ByGenre(String genre) {
     List<Book> bookList = new ArrayList<>();
     String query = "SELECT * FROM `books` WHERE `Genre` =   ORDER BY `DateAdded` ASC LIMIT 5";
@@ -83,7 +82,6 @@ public class Database {
 
 
  
-=======
     public boolean doesUserExist(String username) {
         // Query the database to check if the username already exists
         String selectQuery = "SELECT COUNT(*) from users WHERE username = ?";
@@ -139,7 +137,4 @@ public class Database {
             return false;
         }
     }
-
-
->>>>>>> 18b7d00d44a031d923cbeaf134e1a07af67f5080
 }
