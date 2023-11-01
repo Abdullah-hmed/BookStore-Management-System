@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import java.net.URL?>
-<AnchorPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.AdminDashboardLoader">
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600" prefWidth="854.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.AdminDashboardLoader">
     <stylesheets>
         <URL value="@styles2.css" />
     </stylesheets>
 
     <children>
         <!-- Top VBox -->
-        <VBox alignment="CENTER" spacing="10" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-            <Label styleClass="header-label" text="Admin Dashboard" />
+        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #e9d5c7;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label text="Admin Dashboard" textFill="#895454">
+            <styleClass>
+               <String fx:value="header-label" />
+               <String fx:value="header-label" />
+            </styleClass>
+            <font>
+               <Font name="System Bold" size="17.0" />
+            </font></Label>
         </VBox>
 
         <!-- Left VBox -->
-        <VBox spacing="10" AnchorPane.topAnchor="40.0" AnchorPane.leftAnchor="0.0">
-            <Label styleClass="section-label" text="Recent Sales" />
-            <ListView fx:id="recentSalesListView" />
+        <VBox spacing="10" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="162.0" styleClass="section-label" text="Recent Sales" textAlignment="CENTER" textFill="#6b2828" />
+            <ListView fx:id="recentSalesListView" prefHeight="400.0" prefWidth="183.0" style="-fx-background-color: #e9d5c7;" />
         </VBox>
 
         <!-- Center VBox -->
-        <VBox alignment="CENTER" spacing="10" AnchorPane.topAnchor="40.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
-            <Label styleClass="section-label" text="Inventory" />
-            <TableView fx:id="inventoryTableView">
+        <VBox alignment="CENTER" spacing="10" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+            <Label styleClass="section-label" text="Inventory" textFill="#6b2828" />
+            <TableView fx:id="inventoryTableView" prefHeight="400.0" prefWidth="634.0" style="-fx-background-color: #e9d5c7;">
                 <columns>
                     <TableColumn prefWidth="100" text="ISBN" />
                     <TableColumn prefWidth="250" text="Title" />
@@ -39,5 +49,3 @@
         </VBox>
     </children>
 </AnchorPane>
-
-

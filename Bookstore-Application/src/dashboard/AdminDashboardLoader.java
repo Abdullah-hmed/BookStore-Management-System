@@ -14,8 +14,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 
 
 public class AdminDashboardLoader extends Application {
@@ -28,10 +28,14 @@ public class AdminDashboardLoader extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("AdminDashboard.fxml"));
 
             Scene scene = new Scene(root, 800, 600);
+           
 
             primaryStage.setTitle("Bookstore Management System - Admin Dashboard");
             primaryStage.setScene(scene);
             primaryStage.show();
     }
+    
+    public void Search(){
+        
+    }
 }
-
