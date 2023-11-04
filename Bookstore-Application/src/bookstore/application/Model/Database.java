@@ -13,9 +13,9 @@ import javafx.scene.image.Image;
 
 public class Database {
     
-    private final String Url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12656987";
-    private final String User = "sql12656987";
-    private final String Password = "SkJW9AUzZ5";
+    private final String Url = "jdbc:mysql://2ih.h.filess.io:3307/bookstore_slopecame";
+    private final String User = "bookstore_slopecame";
+    private final String Password = "37f7394360cac41cc6314d198a1ba4672842b9f6";
     
 
     
@@ -101,18 +101,20 @@ public class Database {
     }
     
     public boolean registerUser(User user){
-        String selectQuery = "INSERT INTO users (username, password, email, FirstName, LastName, Address, Phone) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String selectQuery = "INSERT INTO users (FirstName, LastName, email, username, password, Address, Phone) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = connect();
             PreparedStatement statement = connection.prepareStatement(selectQuery)) {
-            statement.setString(1, user.getUsername());
-            statement.setString(2, user.getPassword());
+            statement.setString(1, user.getFirstname());
+            statement.setString(2, user.getLastname());
             statement.setString(3, user.getEmail());
-            statement.setString(4, user.getFirstname());
-            statement.setString(5, user.getLastname());
+            statement.setString(4, user.getUsername());
+            statement.setString(5, user.getPassword());
             statement.setString(6, user.getAddress());
             statement.setString(7, user.getPhone()); 
             
             int rowsAffected = statement.executeUpdate();
+            
+            System.out.println("Signed Up!");
             
             return rowsAffected > 0;
 
