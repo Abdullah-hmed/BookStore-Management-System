@@ -8,12 +8,22 @@ public class Book {
     private byte[] bookSrc;
     private String bookAuthor;
     private int price;
+    private String genre;
     
-    public Book(String bookName, String bookAuthor, byte[] bookSrc, int price) {
+    public Book(String bookName, String bookAuthor, byte[] bookSrc, int price , String genre) {
         this.bookName = bookName;
         this.bookSrc = bookSrc;
         this.bookAuthor = bookAuthor;
         this.price = price;
+        this.genre=genre;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
     Random random = new Random();
 

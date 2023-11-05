@@ -68,18 +68,21 @@ public class FictionController implements Initializable {
      
        
         ByGenre = new ArrayList<>(database.ByGenre(genre));
-        try {
-          
-            for(int i=0;i<ByGenre.size();i++){
-                FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource("card.fxml"));
-                HBox cardBox = fxmlloader.load();
-                cardController cardcontroller = fxmlloader.getController();
-                cardcontroller.SetData(ByGenre.get(i));
-               cardLayoutMP.getChildren().add(cardBox);
-            }   
-        } catch(IOException e){
-            e.printStackTrace();
-        }  
+
+    try {
+        for (int i = 0; i < ByGenre.size(); i++) {
+            Book book = ByGenre.get(i);
+            if (book.getGenre().equals(genre)) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("card.fxml"));
+                HBox cardBox = fxmlLoader.load();
+                cardController cardController = fxmlLoader.getController();
+                cardController.SetData(book);
+
+                cardLayoutMP.getChildren().add(cardBox);
+            }
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }  
     }
 }

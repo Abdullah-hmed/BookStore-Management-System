@@ -33,7 +33,7 @@ public class Database {
             ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {                
-                bookList.add(new Book(resultSet.getString("BookName"),resultSet.getString("Author"),resultSet.getBytes("Picture"), resultSet.getInt("Price")));
+                bookList.add(new Book(resultSet.getString("BookName"),resultSet.getString("Author"),resultSet.getBytes("Picture"), resultSet.getInt("Price"),resultSet.getString("genre")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class Database {
             ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {                
-                bookList.add(new Book(resultSet.getString("BookName"),resultSet.getString("Author"),resultSet.getBytes("Picture"), resultSet.getInt("Price")));
+                bookList.add(new Book(resultSet.getString("BookName"),resultSet.getString("Author"),resultSet.getBytes("Picture"), resultSet.getInt("Price"),resultSet.getString("genre")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class Database {
         ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {                
-            bookList.add(new Book(resultSet.getString("BookName"), resultSet.getString("Author"), resultSet.getBytes("Picture"), resultSet.getInt("Price")));
+            bookList.add(new Book(resultSet.getString("BookName"), resultSet.getString("Author"), resultSet.getBytes("Picture"), resultSet.getInt("Price"),resultSet.getString("genre")));
         }
     } catch (SQLException e) {
         e.printStackTrace();

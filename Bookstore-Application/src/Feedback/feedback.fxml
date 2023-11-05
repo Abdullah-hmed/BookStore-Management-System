@@ -7,9 +7,7 @@
 <?import java.net.URL?>
 
 <AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Feedback.FeedbackController">
-    <stylesheets>
-        <URL value="@feedback.css" />
-    </stylesheets>
+    
     <children>
         <Label layoutX="14.0" layoutY="30.0" text="Name:" />
         <TextField fx:id="nameTextField" layoutX="100.0" layoutY="25.0" promptText="Your Name" />
