@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.LoginController">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Pane fx:id="loginPane" prefHeight="594.0" prefWidth="798.0" StackPane.alignment="CENTER">
+               <children>
+                  <Pane layoutY="2.0" prefHeight="600.0" prefWidth="380.0" style="-fx-background-color: faf3f1;">
+                     <children>
+                        <Label layoutX="142.0" layoutY="353.0" prefHeight="44.0" prefWidth="103.0" text="Login">
+                           <font>
+                              <Font name="Cooper Black" size="36.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="105.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Fox_River_Paper_logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <VBox alignment="CENTER" layoutX="380.0" prefHeight="600.0" prefWidth="425.0" style="-fx-background-color: ffffff;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Username">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <TextField fx:id="usernameField" />
+                           </children>
+                        </HBox>
+                        <Pane layoutX="10.0" layoutY="308.0" prefHeight="25.0" prefWidth="425.0" />
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="288.0">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Password">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <PasswordField fx:id="passwordField" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="32.0" prefWidth="425.0" />
+                        <JFXButton fx:id="loginButton" buttonType="RAISED" onAction="#LoginUser" prefHeight="51.0" prefWidth="185.0" style="-fx-background-color: faf3f1;" text="Login">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <HBox alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="425.0">
+                           <children>
+                              <Label text="Don't have an account?">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton onAction="#SignupForm" prefHeight="39.0" prefWidth="94.0" text="Sign Up!" textFill="#005dff">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane fx:id="SigninPane" layoutX="10.0" layoutY="10.0" prefHeight="594.0" prefWidth="798.0" StackPane.alignment="CENTER">
+               <children>
+                  <Pane layoutY="2.0" prefHeight="600.0" prefWidth="380.0" style="-fx-background-color: faf3f1;">
+                     <children>
+                        <Label layoutX="116.0" layoutY="353.0" prefHeight="44.0" prefWidth="148.0" text="Sign Up">
+                           <font>
+                              <Font name="Cooper Black" size="36.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="105.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Fox_River_Paper_logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <VBox alignment="CENTER" layoutX="380.0" prefHeight="600.0" prefWidth="425.0" style="-fx-background-color: ffffff;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="First Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <TextField fx:id="firstName" />
+                           </children>
+                        </HBox>
+                        <Pane layoutX="10.0" layoutY="308.0" prefHeight="25.0" prefWidth="425.0" />
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="227.0">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Last Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <TextField fx:id="lastName" />
+                           </children>
+                        </HBox>
+                        <Pane layoutX="10.0" layoutY="256.0" prefHeight="25.0" prefWidth="425.0" />
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="288.0">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Email">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <TextField fx:id="email" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="25.0" prefWidth="425.0" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Username">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <TextField fx:id="usernameReg" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="25.0" prefWidth="425.0" />
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="254.0">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Password">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <PasswordField fx:id="passwordReg" />
+                           </children>
+                        </HBox>
+                        <Pane layoutX="10.0" layoutY="283.0" prefHeight="25.0" prefWidth="425.0" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Address">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <TextField fx:id="Address" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="25.0" prefWidth="425.0" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Pane prefHeight="29.0" prefWidth="47.0" />
+                              <Label prefHeight="27.0" prefWidth="90.0" text="Phone">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="29.0" prefWidth="47.0" />
+                              <TextField fx:id="Phone" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="25.0" prefWidth="425.0" />
+                        <JFXButton fx:id="signupButton" buttonType="RAISED" onAction="#SignUp" prefHeight="51.0" prefWidth="185.0" style="-fx-background-color: faf3f1;" text="Sign Up">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <HBox alignment="BASELINE_CENTER" prefHeight="30.0" prefWidth="425.0">
+                           <children>
+                              <Label text="Already have an account?">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton onAction="#loginForm" prefHeight="39.0" prefWidth="81.0" text="Log In!" textFill="#005dff">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

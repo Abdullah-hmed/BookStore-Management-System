@@ -27,8 +27,11 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -39,7 +42,39 @@ import javafx.stage.StageStyle;
  */
 public class FXMLDocumentController implements Initializable {
         
-  
+    @FXML
+    private BorderPane borderPane;
+    
+    @FXML
+    private JFXButton ArtButton;
+
+    @FXML
+    private JFXButton BiographyButton;
+
+    @FXML
+    private JFXButton ScifiButton;
+
+    @FXML
+    private JFXButton FantasyButton;
+
+    @FXML
+    private JFXButton NonfictionButton;
+
+    @FXML
+    private JFXButton HistoryButton;
+
+    @FXML
+    private JFXButton ThrillerButton;
+
+    @FXML
+    private JFXButton RomanceButton;
+
+    @FXML
+    private JFXButton ComicsButton;
+
+    @FXML
+    private JFXButton ChildrenBooksButton;
+    
     @FXML
     private TextField searchBar;
     
@@ -60,7 +95,7 @@ public class FXMLDocumentController implements Initializable {
     private List<Book> recentlyAdded;
     private List<Book> mostPopular;
     
-    Database database = new Database();
+    public Database database = new Database();
     
     @FXML
     void loginUser(ActionEvent event) throws Exception {
@@ -78,36 +113,83 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         try {
-            database.connect(); //database connection established
-        } catch (SQLException ex) {
-            System.out.println("Database not connected successfully");
-            ex.printStackTrace();
+            VBox box = FXMLLoader.load(getClass().getResource("FrontPageCards.fxml"));
+            borderPane.setCenter(box);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        recentlyAdded = new ArrayList<>(database.recentlyAdded());
-        mostPopular = new ArrayList<>(database.mostPopular());
+    }
+    
+    @FXML
+    void HomeButton(ActionEvent event) {
         try {
-            for(int i=0;i<recentlyAdded.size();i++){
-                FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource("card.fxml"));
-                HBox cardBox = fxmlloader.load();
-                cardController cardcontroller = fxmlloader.getController();
-                cardcontroller.SetData(recentlyAdded.get(i));
-                cardLayoutRA.getChildren().add(cardBox);
-            }   
-            for(int i=0;i<mostPopular.size();i++){
-                FXMLLoader fxmlloader = new FXMLLoader();
-                fxmlloader.setLocation(getClass().getResource("card.fxml"));
-                HBox cardBox = fxmlloader.load();
-                cardController cardcontroller = fxmlloader.getController();
-                cardcontroller.SetData(mostPopular.get(i));
-                cardLayoutMP.getChildren().add(cardBox);
-            }   
-        } catch(IOException e){
-            e.printStackTrace();
+            VBox box = FXMLLoader.load(getClass().getResource("FrontPageCards.fxml"));
+            borderPane.setCenter(box);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+    }
+    
+    @FXML
+    void ArtPage(ActionEvent event) {
+        try {
+            VBox box = FXMLLoader.load(getClass().getResource("ArtBooks.fxml"));
+            borderPane.setCenter(box);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    void BiographyPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ChildrensBooksPage(ActionEvent event) {
+        try {
+            VBox box = FXMLLoader.load(getClass().getResource("ChildrensBooks.fxml"));
+            borderPane.setCenter(box);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    void ComicsPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void FantasyPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void HistoryPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void NonFictionPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void RomancePage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ScifiPage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ThrillerPage(ActionEvent event) {
+
     }
 }

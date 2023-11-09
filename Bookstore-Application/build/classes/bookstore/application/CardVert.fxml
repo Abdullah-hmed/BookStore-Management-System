@@ -4,43 +4,42 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="card" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#DisplayBook" prefHeight="250.0" prefWidth="480.0" spacing="15.0" styleClass="HBox" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.cardController">
+<VBox fx:id="card" alignment="CENTER" styleClass="white-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.CardVertController">
    <children>
       <ImageView fx:id="bookImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#00000084" height="46.8" radius="22.52" width="45.28" />
          </effect>
       </ImageView>
-      <VBox alignment="CENTER_LEFT" prefHeight="185.0" prefWidth="251.0">
+      <VBox alignment="CENTER" fillWidth="false">
          <children>
-            <Label fx:id="bookName" prefHeight="46.0" prefWidth="252.0" text="A Street Cat Named Bob">
+            <Label fx:id="bookName" prefHeight="46.0" prefWidth="252.0" text="A Street Cat Named Bob" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="bookAuthor" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="252.0" text="By: James Bowen">
+            <Label fx:id="bookAuthor" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="252.0" text="By: James Bowen" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="bookGenre" layoutX="10.0" layoutY="127.0" prefHeight="31.0" prefWidth="252.0" text="Genre">
+            <Label fx:id="bookGenre" layoutX="10.0" layoutY="127.0" prefHeight="31.0" prefWidth="252.0" text="Genre" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="bookPrice" layoutX="10.0" layoutY="143.0" prefHeight="31.0" prefWidth="252.0" text="Rs 1000">
+            <Label fx:id="bookPrice" layoutX="10.0" layoutY="143.0" prefHeight="31.0" prefWidth="252.0" text="Rs 1000" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </VBox>
    </children>
-   <padding>
-      <Insets left="18.0" />
-   </padding>
-</HBox>
+</VBox>

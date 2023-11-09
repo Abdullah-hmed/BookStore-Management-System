@@ -21,6 +21,7 @@ public class Database {
     
     
     public Connection connect() throws SQLException {
+        System.out.println("Database connecting");
         return DriverManager.getConnection(Url, User, Password);
     }
     
@@ -62,7 +63,7 @@ public class Database {
     
     public List<Book> ByGenre(String genre) {
     List<Book> bookList = new ArrayList<>();
-    String query = "SELECT * FROM `books` WHERE `Genre` =   ORDER BY `DateAdded` ASC LIMIT 5";
+    String query = "SELECT * FROM books WHERE Genre = ?  ORDER BY DateAdded ASC LIMIT 5";
 
     try (Connection connection = connect();
         PreparedStatement statement = connection.prepareStatement(query)) {

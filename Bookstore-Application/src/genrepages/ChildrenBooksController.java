@@ -9,6 +9,7 @@ package genrepages;
  *
  * @author Alli
  */
+import bookstore.application.CardVertController;
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
 import bookstore.application.cardController;
@@ -33,38 +34,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 public class ChildrenBooksController implements Initializable {
-       @FXML
-    private BorderPane rootPane;
+    
 
     @FXML
-    public VBox centerPane;
-
-    @FXML
-     Label headerLabel;
-    @FXML
-    private TextField searchBar;
-    
-    @FXML
-    private ScrollPane scrollPaneRecent;
-    
-    @FXML
-    private HBox cardLayoutRA;
-
-    @FXML
-    private JFXButton UserButton;
-    
-    @FXML
-    private MenuItem loginOption;
-
-    @FXML
-    private MenuItem signinOption;
-    
-    @FXML
-    private HBox cardLayoutMP;
+    private VBox Box;
   
     public ListView<String> fictionListView;
     private List<Book> ByGenre;
-    public String genre="Children Books";
+    public String genre="Childrens-Books";
     Database database = new Database();
 
 
@@ -76,31 +53,21 @@ public class ChildrenBooksController implements Initializable {
             System.out.println("Database not connected successfully");
             ex.printStackTrace();
         }
-     
-       
-          ByGenre = new ArrayList<>(database.ByGenre(genre));
 
-    try {
-        for (int i = 0; i < ByGenre.size(); i++) {
-            Book book = ByGenre.get(i);
-            if (book.getGenre().equals(genre)) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("card.fxml"));
-                HBox cardBox = fxmlLoader.load();
-                cardController cardController = fxmlLoader.getController();
-                cardController.SetData(book);
-
-                cardLayoutMP.getChildren().add(cardBox);
-            }
+        ByGenre = new ArrayList<>(database.ByGenre(genre));
+        try {   
+            for(int i=0;i<ByGenre.size();i++){
+                FXMLLoader fxmlloader = new FXMLLoader();
+                VBox cardBox = FXMLLoader.load(getClass().getResource("CardVert.fxml"));
+                CardVertController cardcontroller = fxmlloader.getController();
+                cardcontroller.SetData(ByGenre.get(i));
+                Box.getChildren().add(cardBox);
+            }   
+        } catch(IOException e){
+            e.printStackTrace();
         }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
     }
 
     // You can add methods and event handlers here
-
-    public BorderPane getRootPane() {
-        return rootPane;
-    }
 }
 

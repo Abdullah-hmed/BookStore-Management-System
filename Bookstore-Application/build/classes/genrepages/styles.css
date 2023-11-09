@@ -1,0 +1,42 @@
+/* Style for the header label */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+/* Style for section labels (e.g., Recent Sales, Inventory) */
+.section-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+/* Style for the ListView */
+.list-view {
+    -fx-pref-width: 400px;
+    -fx-pref-height: 400px;
+    -fx-font-size: 14px;
+}
+
+/* Style for the odd and even rows in the ListView */
+.list-cell:odd {
+    -fx-background-color: #f0f0f0;
+}
+
+.list-cell:even {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Style for selected items in the ListView */
+.list-cell:filled:selected {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: white;
+}
+
+/* Style for hover effect on list items */
+.list-cell:filled:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Customize further based on your design preferences */

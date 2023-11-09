@@ -27,11 +27,6 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="bookGenre" layoutX="10.0" layoutY="127.0" prefHeight="31.0" prefWidth="252.0" text="Genre">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
             <Label fx:id="bookPrice" layoutX="10.0" layoutY="143.0" prefHeight="31.0" prefWidth="252.0" text="Rs 1000">
                <font>
                   <Font name="System Bold" size="15.0" />

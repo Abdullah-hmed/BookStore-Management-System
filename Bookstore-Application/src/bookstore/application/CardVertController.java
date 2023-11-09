@@ -6,16 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
-public class cardController {
-    
+public class CardVertController {
+
     @FXML
-    private HBox card;
-    
-    @FXML
-    private Label bookGenre;
+    private VBox card;
     
     @FXML
     private ImageView bookImage;
@@ -27,13 +23,11 @@ public class cardController {
     private Label bookAuthor;
 
     @FXML
-    private Label bookPrice;
-    
+    private Label bookGenre;
+
     @FXML
-    void DisplayBook(MouseEvent event) {
-        GetData();
-    }
-    
+    private Label bookPrice;
+
     public void SetData(Book book){
         Image image = new Image(new ByteArrayInputStream(book.getBookSrc()));
         bookImage.setImage(image);

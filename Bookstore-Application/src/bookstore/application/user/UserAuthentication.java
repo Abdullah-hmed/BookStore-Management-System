@@ -9,6 +9,7 @@ package bookstore.application.user;
  *
  * @author Laiba Asif
  */
+import bookstore.application.FXMLDocumentController;
 import bookstore.application.Model.Database;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -23,21 +24,21 @@ import java.util.regex.Pattern;
 
 public class UserAuthentication {
     private Map<String, User> users;
-    Database database = new Database();
-
+    //Database database = new Database();
+    FXMLDocumentController controller = new FXMLDocumentController();
     public UserAuthentication() {
         users = new HashMap<>();
-        try {
-            database.connect();
-        } catch (SQLException ex) {
-            Logger.getLogger(UserAuthentication.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            database.connect();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(UserAuthentication.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     public void register(User user) {
         if(!usernameAvailable(user.getUsername()) && emailValidation(user.getEmail()) && passwordValidation(user.getPassword())){
             System.out.println("Making account");
-            boolean registered = database.registerUser(user);
+            boolean registered = controller.database.registerUser(user);
             
             if(registered){
                 System.out.println("Account has been registered");
@@ -51,7 +52,7 @@ public class UserAuthentication {
     }
 
     public boolean login(String username, String password) {
-        return database.loginUser(username, password);
+        return controller.database.loginUser(username, password);
     }
 
     private String hashPassword(String password) {
@@ -84,7 +85,7 @@ public class UserAuthentication {
     }
 
     public boolean usernameAvailable(String username){
-        return database.doesUserExist(username);
+        return controller.database.doesUserExist(username);
     }
 }
 

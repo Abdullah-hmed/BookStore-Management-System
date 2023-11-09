@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="genrepages.FantasyController">
+
+    <top>
+        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: beige;">
+            <Label styleClass="header-label" text="Fantasy" />
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: beige;">
+            <ListView fx:id="fictionListView" styleClass="list-view" />
+        </VBox>
+    </center>
+</BorderPane>
