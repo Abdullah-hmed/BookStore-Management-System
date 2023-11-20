@@ -163,7 +163,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void ComicsPage(ActionEvent event) {
-
+        
     }
 
     @FXML

@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -54,8 +55,24 @@ public class ChildrensBooksController implements Initializable {
     public void initData(String genre) {
         this.genre = genre;
         genreLabel.setText(genre);
-        loadBooks();
+        loadBooksAsync();
     }
+    
+    private void loadBooksAsync() {
+        Task<List<Book>> task = new Task<List<Book>>() {
+            @Override
+            protected List<Book> call() throws Exception {
+                return controller.database.ByGenre(genre);
+            }
+        };
+
+        task.setOnSucceeded(event -> {
+            ByGenre = task.getValue();
+            loadBooks();
+        });
+        new Thread(task).start();
+    }
+    
     private void loadBooks() {
         ByGenre = new ArrayList<>(controller.database.ByGenre(genre));
 

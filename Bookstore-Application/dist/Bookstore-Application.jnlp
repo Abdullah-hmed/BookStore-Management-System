@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Bookstore-Application.jar" size="163745" download="eager" />
+    <jar href="Bookstore-Application.jar" size="169451" download="eager" />
     <jar href="lib\fontawesomefx-8.9-javadoc.jar" size="279185" download="eager" />
     <jar href="lib\jfoenix-8.0.10.jar" size="2710207" download="eager" />
     <jar href="lib\mysql-connector-j-8.1.0.jar" size="2485905" download="eager" />
