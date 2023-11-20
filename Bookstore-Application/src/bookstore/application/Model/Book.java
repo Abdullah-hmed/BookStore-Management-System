@@ -58,4 +58,8 @@ public class Book {
     public void setBookAuthor(String bookAuthor) {
         this.bookAuthor = bookAuthor;
     }
+    
+    public void GetData(){
+        System.out.println("Name: "+getBookName()+"\nAuthor: "+getBookAuthor()+"\nGenre: "+getGenre()+"\nPrice: "+getPrice());
+    }
 }

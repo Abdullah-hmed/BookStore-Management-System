@@ -61,6 +61,25 @@ public class Database {
         return bookList;
     }
     
+    public List<Book> searchResult(String search){
+        String selectQuery = "SELECT * FROM `books` WHERE BookName LIKE ?;";
+        List<Book> bookList = new ArrayList<>();
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+            statement.setString(1, "%"+search+"%");
+            ResultSet resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                bookList.add(new Book(resultSet.getString("BookName"), resultSet.getString("Author"), resultSet.getBytes("Picture"), resultSet.getInt("Price"),resultSet.getString("genre")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return bookList;
+    }
+    
     public List<Book> ByGenre(String genre) {
     List<Book> bookList = new ArrayList<>();
     String query = "SELECT * FROM books WHERE Genre = ?  ORDER BY DateAdded ASC LIMIT 5";
@@ -125,6 +144,8 @@ public class Database {
         return false;
     }
 
+    
+    
     public boolean loginUser(String username, String password) {
         String selectQuery = "SELECT * FROM users WHERE username = ? AND password = ?";
 

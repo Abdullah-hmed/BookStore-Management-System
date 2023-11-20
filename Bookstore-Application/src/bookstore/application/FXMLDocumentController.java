@@ -192,4 +192,14 @@ public class FXMLDocumentController implements Initializable {
     void ThrillerPage(ActionEvent event) {
 
     }
+    
+     @FXML
+    void searchButton(ActionEvent event) {
+        List<Book> output;
+        String search = searchBar.getText();
+        output = database.searchResult(search);
+        for(int i=0;i<output.size();i++){
+            output.get(i).GetData();
+        }
+    }
 }
