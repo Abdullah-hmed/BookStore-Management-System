@@ -41,17 +41,25 @@ public class ChildrensBooksController implements Initializable {
     @FXML
     private TilePane bookTiles;
     private List<Book> ByGenre;
-    public String genre="Childrens-Books";
+    public String genre;
     
     
     
     FXMLDocumentController controller = new FXMLDocumentController();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        genreLabel.setText(genre);
-        ByGenre = new ArrayList<>(controller.database.ByGenre(genre));
         
-        for(int i=0;i<ByGenre.size();i++){
+    }    
+    
+    public void initData(String genre) {
+        this.genre = genre;
+        genreLabel.setText(genre);
+        loadBooks();
+    }
+    private void loadBooks() {
+        ByGenre = new ArrayList<>(controller.database.ByGenre(genre));
+
+        for (int i = 0; i < ByGenre.size(); i++) {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("CardVert.fxml"));
@@ -63,6 +71,5 @@ public class ChildrensBooksController implements Initializable {
                 Logger.getLogger(ChildrensBooksController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }    
-    
+    }
 }

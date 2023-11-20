@@ -133,14 +133,22 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
-    @FXML
-    void ArtPage(ActionEvent event) {
+    private void loadAndSetCenter(String fxmlFileName, String genre) {
         try {
-            VBox box = FXMLLoader.load(getClass().getResource("ArtBooks.fxml"));
-            borderPane.setCenter(box);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFileName));
+            Parent root = loader.load();
+            ChildrensBooksController controller = loader.getController();
+            controller.initData(genre);
+
+            borderPane.setCenter(root);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    @FXML
+    void ArtPage(ActionEvent event) {
+        loadAndSetCenter("ChildrensBooks.fxml", "Art-Phtotography");
     }
 
     @FXML
@@ -150,12 +158,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void ChildrensBooksPage(ActionEvent event) {
-        try {
-            VBox box = FXMLLoader.load(getClass().getResource("ChildrensBooks.fxml"));
-            borderPane.setCenter(box);
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        loadAndSetCenter("ChildrensBooks.fxml", "Childrens-Books");
     }
 
     @FXML
