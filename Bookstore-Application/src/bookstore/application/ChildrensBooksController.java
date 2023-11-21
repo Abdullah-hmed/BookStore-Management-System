@@ -42,6 +42,7 @@ public class ChildrensBooksController implements Initializable {
     @FXML
     private TilePane bookTiles;
     private List<Book> ByGenre;
+    private List<Book> searchResult;
     public String genre;
     
     
@@ -52,10 +53,29 @@ public class ChildrensBooksController implements Initializable {
         
     }    
     
-    public void initData(String genre) {
+    public void initData(String genre, String booktype) {
         this.genre = genre;
         genreLabel.setText(genre);
-        loadBooksAsync();
+        if(booktype.equals("genre")){
+            loadBooksAsync();
+        }else{
+            SearchResultAsync();
+        }
+    }
+    
+    private void SearchResultAsync() {
+        Task<List<Book>> task = new Task<List<Book>>() {
+            @Override
+            protected List<Book> call() throws Exception {
+                return controller.database.searchResult(genre);
+            }
+        };
+
+        task.setOnSucceeded(event -> {
+            searchResult = task.getValue();
+            loadBooks(controller.database.searchResult(genre));
+        });
+        new Thread(task).start();
     }
     
     private void loadBooksAsync() {
@@ -68,13 +88,13 @@ public class ChildrensBooksController implements Initializable {
 
         task.setOnSucceeded(event -> {
             ByGenre = task.getValue();
-            loadBooks();
+            loadBooks(controller.database.ByGenre(genre));
         });
         new Thread(task).start();
     }
     
-    private void loadBooks() {
-        ByGenre = new ArrayList<>(controller.database.ByGenre(genre));
+    private void loadBooks(List OutputArray) {
+        ByGenre = new ArrayList<>(OutputArray);
 
         for (int i = 0; i < ByGenre.size(); i++) {
             try {

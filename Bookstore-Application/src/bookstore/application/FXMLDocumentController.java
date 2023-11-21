@@ -133,12 +133,12 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
-    private void loadAndSetCenter(String fxmlFileName, String genre) {
+    private void loadAndSetCenter(String fxmlFileName, String genre, String booktype) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFileName));
             Parent root = loader.load();
             ChildrensBooksController controller = loader.getController();
-            controller.initData(genre);
+            controller.initData(genre, booktype);
 
             borderPane.setCenter(root);
         } catch (IOException ex) {
@@ -148,32 +148,32 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     void ArtPage(ActionEvent event) {
-        loadAndSetCenter("ChildrensBooks.fxml", "Art-Phtotography");
+        loadAndSetCenter("ChildrensBooks.fxml", "Art-Phtotography", "genre");
     }
 
     @FXML
     void BiographyPage(ActionEvent event) {
-
+        loadAndSetCenter("ChildrensBooks.fxml", "Biography", "genre");
     }
 
     @FXML
     void ChildrensBooksPage(ActionEvent event) {
-        loadAndSetCenter("ChildrensBooks.fxml", "Childrens-Books");
+        loadAndSetCenter("ChildrensBooks.fxml", "Childrens-Books", "genre");
     }
 
     @FXML
     void ComicsPage(ActionEvent event) {
-        
+        loadAndSetCenter("ChildrensBooks.fxml", "Crime-Thriller", "genre");
     }
 
     @FXML
     void FantasyPage(ActionEvent event) {
-
+        loadAndSetCenter("ChildrensBooks.fxml", "Science-Fiction-Fantasy-Horror", "genre");
     }
 
     @FXML
     void HistoryPage(ActionEvent event) {
-
+        loadAndSetCenter("ChildrensBooks.fxml", "Natural-History", "genre");
     }
 
     @FXML
@@ -198,11 +198,10 @@ public class FXMLDocumentController implements Initializable {
     
      @FXML
     void searchButton(ActionEvent event) {
-        List<Book> output;
-        String search = searchBar.getText();
-        output = database.searchResult(search);
-        for(int i=0;i<output.size();i++){
-            output.get(i).GetData();
-        }
+        printSearch();
+    }
+    
+    void printSearch(){
+        loadAndSetCenter("ChildrensBooks.fxml", searchBar.getText(), "search");
     }
 }
