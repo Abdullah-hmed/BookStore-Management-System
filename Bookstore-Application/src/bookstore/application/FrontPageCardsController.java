@@ -19,9 +19,6 @@ import javafx.scene.layout.HBox;
 public class FrontPageCardsController implements Initializable {
 
     @FXML
-    private ScrollPane scrollPaneRecent;
-
-    @FXML
     private HBox cardLayoutRA;
 
     @FXML

@@ -8,45 +8,49 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.FrontPageCardsController">
-   <children>
-      <Label prefHeight="62.0" prefWidth="221.0" text="Recently Added">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-         <padding>
-            <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </Label>
-      <ScrollPane fx:id="scrollPaneRecent" focusTraversable="false" pannable="true" prefHeight="269.0" prefWidth="1054.0" stylesheets="@styles.css">
-         <content>
-            <HBox fx:id="cardLayoutRA" focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
-         </content>
-         <styleClass>
-            <String fx:value="decrement-button" />
-            <String fx:value="increment-button" />
-            <String fx:value="scroll-bar" />
-            <String fx:value="scroll-pane" />
-         </styleClass>
-      </ScrollPane>
-      <Label layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="221.0" text="Most Popular">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-         <padding>
-            <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </Label>
-      <ScrollPane focusTraversable="false" layoutX="10.0" layoutY="80.0" pannable="true" prefHeight="269.0" prefWidth="1054.0" stylesheets="@styles.css">
-         <content>
-            <HBox fx:id="cardLayoutMP" focusTraversable="true" prefHeight="245.0" prefWidth="1312.0" stylesheets="@styles.css" />
-         </content>
-         <styleClass>
-            <String fx:value="decrement-button" />
-            <String fx:value="increment-button" />
-            <String fx:value="scroll-bar" />
-            <String fx:value="scroll-pane" />
-         </styleClass>
-      </ScrollPane>
-   </children>
-</VBox>
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.FrontPageCardsController">
+   <content>
+      <VBox>
+         <children>
+            <Label prefHeight="62.0" prefWidth="221.0" text="Recently Added">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <ScrollPane fx:id="scrollPaneRecent" focusTraversable="false" pannable="true" stylesheets="@styles.css">
+               <content>
+                  <HBox fx:id="cardLayoutRA" focusTraversable="true" stylesheets="@styles.css" />
+               </content>
+               <styleClass>
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+            </ScrollPane>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="221.0" text="Most Popular">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </Label>
+            <ScrollPane focusTraversable="false" layoutX="10.0" layoutY="80.0" pannable="true" stylesheets="@styles.css">
+               <content>
+                  <HBox fx:id="cardLayoutMP" focusTraversable="true" stylesheets="@styles.css" />
+               </content>
+               <styleClass>
+                  <String fx:value="decrement-button" />
+                  <String fx:value="increment-button" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="scroll-pane" />
+               </styleClass>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

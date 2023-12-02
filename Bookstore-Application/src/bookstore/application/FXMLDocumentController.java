@@ -115,7 +115,7 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         try {
-            VBox box = FXMLLoader.load(getClass().getResource("FrontPageCards.fxml"));
+            ScrollPane box = FXMLLoader.load(getClass().getResource("FrontPageCards.fxml"));
             borderPane.setCenter(box);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
@@ -126,7 +126,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     void HomeButton(ActionEvent event) {
         try {
-            VBox box = FXMLLoader.load(getClass().getResource("FrontPageCards.fxml"));
+            ScrollPane box = FXMLLoader.load(getClass().getResource("FrontPageCards.fxml"));
             borderPane.setCenter(box);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);

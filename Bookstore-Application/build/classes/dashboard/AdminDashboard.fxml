@@ -1,52 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600" prefWidth="854.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.AdminDashboardLoader">
+<BorderPane prefHeight="599.0" prefWidth="830.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.AdminDashboardLoader">
     <stylesheets>
         <URL value="@styles2.css" />
     </stylesheets>
-
-    <top>
-        <!-- Top VBox -->
-        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #e9d5c7;">
-            <Label text="Admin Dashboard" textFill="#895454" styleClass="header-label">
-                <font>
-                    <Font name="System Bold" size="17.0" />
-                </font>
+   <top>
+      <JFXToolbar BorderPane.alignment="CENTER">
+         <right>
+            <JFXButton alignment="CENTER_RIGHT" text="Logout" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Consolas Bold" size="18.0" />
+               </font>
+            </JFXButton>
+         </right>
+         <left>
+            <Label text="Admin Dashboard" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="24.0" />
+               </font>
             </Label>
-        </VBox>
-    </top>
-
-    <left>
-        <!-- Left VBox -->
-        <VBox spacing="10">
-            <Label alignment="CENTER" prefHeight="32.0" prefWidth="162.0" styleClass="section-label" text="Recent Sales" textAlignment="CENTER" textFill="#6b2828" />
-            <ListView fx:id="recentSalesListView" prefHeight="400.0" prefWidth="183.0" style="-fx-background-color: #e9d5c7;" />
-        </VBox>
-    </left>
-
-    <center>
-        <!-- Center VBox -->
-        <VBox alignment="CENTER" spacing="10">
-            <Label styleClass="section-label" text="Inventory" textFill="#6b2828" />
-            <TableView fx:id="inventoryTableView" prefHeight="400.0" prefWidth="634.0" style="-fx-background-color: #e9d5c7;">
-                <columns>
-                    <TableColumn prefWidth="100" text="ISBN" />
-                    <TableColumn prefWidth="250" text="Title" />
-                    <TableColumn prefWidth="150" text="Author" />
-                    <TableColumn prefWidth="100" text="Quantity" />
-                    <TableColumn prefWidth="100" text="Price" />
-                </columns>
-            </TableView>
-        </VBox>
-    </center>
+         </left>
+      </JFXToolbar>
+   </top>
+   <left>
+      <VBox alignment="TOP_CENTER" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton text="Trends" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton text="Inventory" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton text="Sales" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>

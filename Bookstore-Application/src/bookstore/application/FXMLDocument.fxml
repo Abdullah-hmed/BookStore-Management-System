@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
@@ -11,11 +12,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" styleClass="white-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.FXMLDocumentController">
+<BorderPane fx:id="borderPane" styleClass="white-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.FXMLDocumentController">
    <left>
       <VBox prefHeight="810.0" prefWidth="261.0" style="-fx-background-color: faf3f1;" BorderPane.alignment="CENTER">
          <children>
@@ -109,9 +109,9 @@
       </VBox>
    </left>
    <top>
-      <HBox prefHeight="66.0" prefWidth="1103.0" style="-fx-background-color: faf3f1;" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton focusTraversable="false" onAction="#HomeButton" prefHeight="66.0" prefWidth="214.0" text="Book Store">
+      <JFXToolbar BorderPane.alignment="CENTER">
+         <left>
+            <JFXButton focusTraversable="false" onAction="#HomeButton" prefHeight="66.0" prefWidth="214.0" text="Book Store" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -123,10 +123,11 @@
                   <Font size="24.0" />
                </font>
             </JFXButton>
-            <Pane prefHeight="50.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
-            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="500.0">
+         </left>
+         <center>
+            <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="searchBar" focusTraversable="false" prefHeight="32.0" prefWidth="427.0" promptText="Search" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="searchBar" focusTraversable="false" prefHeight="32.0" prefWidth="427.0" promptText="Search">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -145,34 +146,28 @@
                   <Insets bottom="6.0" left="26.0" right="6.0" top="6.0" />
                </padding>
             </HBox>
-            <Pane minWidth="-Infinity" prefHeight="50.0" prefWidth="246.0" HBox.hgrow="ALWAYS" />
-            <HBox alignment="CENTER" layoutX="410.0" layoutY="25.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="133.0">
-               <children>
-                  <JFXButton fx:id="UserButton" focusTraversable="false" prefHeight="46.0" prefWidth="97.0" text="Guest">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@user.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <contextMenu>
-                        <ContextMenu fx:id="contextMenu">
-                          <items>
-                              <MenuItem mnemonicParsing="false" onAction="#loginUser" text="Sign In" />
-                          </items>
-                        </ContextMenu>
-                     </contextMenu>
-                  </JFXButton>
-               </children>
-            </HBox>
-         </children>
-         <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-         </padding>
-      </HBox>
+         </center>
+         <right>
+            <JFXButton fx:id="UserButton" focusTraversable="false" prefHeight="46.0" prefWidth="111.0" text="Guest" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <contextMenu>
+                  <ContextMenu fx:id="contextMenu">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#loginUser" text="Sign In" />
+                     </items>
+                  </ContextMenu>
+               </contextMenu>
+            </JFXButton>
+         </right>
+      </JFXToolbar>
    </top>
 </BorderPane>
