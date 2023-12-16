@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.BookDetailsFXMLController">
+   <children>
+      <ImageView fx:id="bookImage" fitHeight="304.0" fitWidth="243.0" layoutX="51.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BookCover/0000001.jpg" />
+         </image>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="63.5" radius="32.010000000000005" width="66.54" />
+         </effect>
+      </ImageView>
+      <Label fx:id="nameLabel" layoutX="263.0" layoutY="130.0" text="Name">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="authorLabel" layoutX="263.0" layoutY="173.0" prefHeight="27.0" text="Author">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLabel" layoutX="263.0" layoutY="214.0" text="Price">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="263.0" layoutY="277.0" onMouseClicked="#addToCart" prefHeight="54.0" prefWidth="288.0" ripplerFill="#00ff11" style="-fx-background-color: lightgreen;" text="Add to Cart" />
+      <Label fx:id="bookAddedLabel" layoutX="310.0" layoutY="342.0" text="Book has been added to Cart!" textFill="#00971c">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

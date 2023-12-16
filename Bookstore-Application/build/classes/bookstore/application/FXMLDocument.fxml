@@ -148,7 +148,7 @@
             </HBox>
          </center>
          <right>
-            <JFXButton fx:id="UserButton" focusTraversable="false" prefHeight="46.0" prefWidth="111.0" text="Guest" BorderPane.alignment="CENTER">
+            <JFXButton fx:id="UserButton" focusTraversable="false" prefHeight="46.0" BorderPane.alignment="CENTER">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -163,6 +163,7 @@
                   <ContextMenu fx:id="contextMenu">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#loginUser" text="Sign In" />
+                        <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#logoutAccount" text="Log out" visible="false" />
                      </items>
                   </ContextMenu>
                </contextMenu>

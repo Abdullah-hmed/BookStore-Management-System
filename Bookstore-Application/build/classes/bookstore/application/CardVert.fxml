@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="card" alignment="CENTER" styleClass="white-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.CardVertController">
+<VBox fx:id="card" alignment="CENTER" onMouseClicked="#DisplayBook" styleClass="white-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.CardVertController">
    <children>
       <ImageView fx:id="bookImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <effect>

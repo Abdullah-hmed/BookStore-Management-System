@@ -25,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -36,6 +37,9 @@ import javafx.stage.Stage;
 
 public class LoginController {
 
+    @FXML
+    private AnchorPane Window;
+    
     @FXML
     private TextField usernameField;
 
@@ -81,9 +85,6 @@ public class LoginController {
     
     @FXML
     void LoginUser(ActionEvent event) throws Exception {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
-//        root = loader.load();
-//        FXMLDocumentController fxdoc = loader.getController();
         String username = usernameField.getText();
         String password = passwordField.getText();
         if (userAuth.login(username, password)) {
@@ -129,13 +130,16 @@ public class LoginController {
         userAuth = new UserAuthentication(); // Create an instance of UserAuthentication
     }
     
-
+    Stage stage;
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
-        alert.showAndWait();
+        if(alert.showAndWait().get() == ButtonType.OK){
+            stage = (Stage) Window.getScene().getWindow();
+            stage.close();
+        }
     }
 }
     

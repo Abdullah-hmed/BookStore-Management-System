@@ -85,10 +85,13 @@ public class FXMLDocumentController implements Initializable {
     private HBox cardLayoutRA;
 
     @FXML
-    private JFXButton UserButton;
+    public JFXButton UserButton;
     
     @FXML
     public ContextMenu contextMenu;
+    
+    @FXML
+    private MenuItem logout;
     
     @FXML
     private HBox cardLayoutMP;
@@ -96,6 +99,7 @@ public class FXMLDocumentController implements Initializable {
     private List<Book> mostPopular;
     
     public Database database = new Database();
+    public boolean loggedIn = false;
     
     @FXML
     void loginUser(ActionEvent event) throws Exception {
@@ -110,9 +114,18 @@ public class FXMLDocumentController implements Initializable {
         stage.show();
         
     }
+    
+    private static FXMLDocumentController instance;
 
+    public static FXMLDocumentController getInstance() {
+        return instance;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        logout.setVisible(false);
+        instance = this;
+        UserButton.setText("Guest");
         
         try {
             ScrollPane box = FXMLLoader.load(getClass().getResource("FrontPageCards.fxml"));
@@ -121,6 +134,17 @@ public class FXMLDocumentController implements Initializable {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    
+    public void showLogoutMenu(){
+        logout.setVisible(true);
+    }
+    
+    public void logoutAccount(){
+        loggedIn = false;
+        logout.setVisible(false);
+        UserButton.setText("Guest");
+        System.out.println("Logged Out!");
     }
     
     @FXML
@@ -204,4 +228,14 @@ public class FXMLDocumentController implements Initializable {
     void printSearch(){
         loadAndSetCenter("ChildrensBooks.fxml", searchBar.getText(), "search");
     }
+
+    public void setUserName(String username) {
+        if(UserButton != null){
+            UserButton.setText(username);
+        }else{
+            System.out.println("Button is NULL");
+        }
+    }
+    
+    
 }
