@@ -29,7 +29,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 /**
  *
  * @author Alli
@@ -88,10 +90,20 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
         if (userAuth.login(username, password)) {
-            showAlert("Login Successful", "Welcome, " + username + "!");
-            
+            showAlert("Login Successful", "Welcome, " + username + "!",true);
+            if(username.equals("admin") && password.equals("admin")){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/dashboard/AdminDashboard.fxml"));
+                Parent dashboard = loader.load();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(dashboard));
+                stage.setTitle("Admin Dashboard");
+                stage.initStyle(StageStyle.UTILITY);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setResizable(false);
+                stage.show();
+            }
         } else {
-            showAlert("Login Failed", "Invalid username or password.");
+            showAlert("Login Failed", "Invalid username or password.",false);
         }
     }
     
@@ -131,12 +143,12 @@ public class LoginController {
     }
     
     Stage stage;
-    private void showAlert(String title, String message) {
+    private void showAlert(String title, String message, boolean loggedIn) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
-        if(alert.showAndWait().get() == ButtonType.OK){
+        if(alert.showAndWait().get() == ButtonType.OK && loggedIn){
             stage = (Stage) Window.getScene().getWindow();
             stage.close();
         }

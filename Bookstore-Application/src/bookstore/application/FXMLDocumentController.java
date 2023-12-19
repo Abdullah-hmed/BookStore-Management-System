@@ -147,6 +147,14 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("Logged Out!");
     }
     
+    public void setUserName(String username) {
+        if(UserButton != null){
+            UserButton.setText(username);
+        }else{
+            System.out.println("Button is NULL");
+        }
+    }
+    
     @FXML
     void HomeButton(ActionEvent event) {
         try {
@@ -229,13 +237,7 @@ public class FXMLDocumentController implements Initializable {
         loadAndSetCenter("ChildrensBooks.fxml", searchBar.getText(), "search");
     }
 
-    public void setUserName(String username) {
-        if(UserButton != null){
-            UserButton.setText(username);
-        }else{
-            System.out.println("Button is NULL");
-        }
-    }
+    
     
     
 }

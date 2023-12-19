@@ -63,6 +63,24 @@ public class Database {
         return bookList;
     }
     
+    public List<Book> Booklist(){
+        List<Book> bookList = new ArrayList<>();
+        String query = "SELECT * FROM books";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(query)) {
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {                
+                bookList.add(new Book(resultSet.getInt("BookID"),resultSet.getString("BookName"), resultSet.getString("Author"), resultSet.getBytes("Picture"), resultSet.getInt("Price"),resultSet.getString("genre")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return bookList;
+    }
+    
     public List<Book> searchResult(String search){
         String selectQuery = "SELECT * FROM `books` WHERE BookName LIKE ?;";
         List<Book> bookList = new ArrayList<>();
@@ -83,26 +101,26 @@ public class Database {
     }
     
     public List<Book> ByGenre(String genre) {
-    List<Book> bookList = new ArrayList<>();
-    String query = "SELECT * FROM books WHERE Genre = ?  ORDER BY DateAdded ASC LIMIT 5";
+        List<Book> bookList = new ArrayList<>();
+        String query = "SELECT * FROM books WHERE Genre = ?  ORDER BY DateAdded ASC LIMIT 5";
 
-    try (Connection connection = connect();
-        PreparedStatement statement = connection.prepareStatement(query)) {
-        
-        statement.setString(1, genre);
-        ResultSet resultSet = statement.executeQuery();
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(query)) {
 
-        while (resultSet.next()) {                
-            bookList.add(new Book(resultSet.getInt("BookID"),resultSet.getString("BookName"), resultSet.getString("Author"), resultSet.getBytes("Picture"), resultSet.getInt("Price"),resultSet.getString("genre")));
+            statement.setString(1, genre);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {                
+                bookList.add(new Book(resultSet.getInt("BookID"),resultSet.getString("BookName"), resultSet.getString("Author"), resultSet.getBytes("Picture"), resultSet.getInt("Price"),resultSet.getString("genre")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+
+        return bookList;
     }
 
-    return bookList;
-    }
-
-
+    
  
     public boolean doesUserExist(String username) {
         // Query the database to check if the username already exists
