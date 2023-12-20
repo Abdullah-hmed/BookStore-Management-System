@@ -3,6 +3,10 @@ package bookstore.application.Model;
 import bookstore.application.FXMLDocumentController;
 import bookstore.application.user.User;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -79,6 +83,45 @@ public class Database {
         }
 
         return bookList;
+    }
+    
+    public List<User> Userlist() {
+        List<User> userList = new ArrayList<>();
+        String query = "SELECT * FROM users";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(query)) {
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {                
+                userList.add(new User(resultSet.getInt("UserID"), resultSet.getString("Username"), resultSet.getString("FirstName"), resultSet.getString("LastName"), resultSet.getString("Email"), resultSet.getString("Address"),resultSet.getString("Phone")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userList;
+    }
+    
+    public boolean addBook(File picture, String bookName, String bookAuthor, String bookGenre, float bookPrice) throws IOException{
+        String selectQuery = "INSERT INTO books (BookName, Author, Genre, Price, Picture) VALUES (?, ?, ?, ?, ?)";
+        try (Connection connection = connect();
+            FileInputStream fis = new FileInputStream(picture);
+            PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+            statement.setString(1, bookName);
+            statement.setString(2, bookAuthor);
+            statement.setString(3, bookGenre);
+            statement.setFloat(4, bookPrice);
+            statement.setBinaryStream(5, fis);
+            
+            int rowsAffected = statement.executeUpdate();
+            
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
     
     public List<Book> searchResult(String search){
@@ -218,4 +261,6 @@ public class Database {
         }
         return false;
     }
+
+    
 }

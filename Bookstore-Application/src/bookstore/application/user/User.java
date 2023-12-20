@@ -10,7 +10,7 @@ package bookstore.application.user;
  * @author Laiba Asif
  */
 public class User {
-    
+    private int userID;
     private String username = "NULL";
     private String password = "NULL";
     private String firstname = "NULL";
@@ -23,6 +23,16 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+    
+    public User (int userID, String username, String firstname, String lastname, String email, String address, String phone){
+        this.userID = userID;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
     }
 
     public String getUsername() {

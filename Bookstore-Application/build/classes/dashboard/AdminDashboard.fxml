@@ -6,6 +6,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -39,76 +41,74 @@
          </left>
       </JFXToolbar>
    </top>
-   <left>
-      <VBox alignment="TOP_CENTER" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton text="Inventory" textAlignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton text="Trends" textAlignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton text="Sales" textAlignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </VBox>
-   </left>
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="289.0" prefWidth="731.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#chooseBookImage" prefHeight="29.0" prefWidth="109.0" text="Choose Cover">
-                     <HBox.margin>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </HBox.margin>
-                  </Button>
-                  <TextField promptText="Book Name">
-                     <HBox.margin>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <TextField promptText="Author Name">
-                     <HBox.margin>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <TextField promptText="Genre">
-                     <HBox.margin>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <TextField prefHeight="29.0" prefWidth="96.0" promptText="Price">
-                     <HBox.margin>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <Button mnemonicParsing="false" text="Add Book">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <TableView fx:id="bookTable" prefHeight="566.0" prefWidth="731.0">
-              <columns>
-                <TableColumn fx:id="bookColumn" minWidth="-1.0" prefWidth="231.0" text="Book" />
-                <TableColumn fx:id="authorColumn" minWidth="-1.0" prefWidth="231.0" text="Author" />
-                  <TableColumn fx:id="genreColumn" minWidth="-1.0" prefWidth="176.0" text="Genre" />
-                  <TableColumn fx:id="priceColumn" minWidth="-1.0" prefWidth="92.0" text="Price" />
-              </columns>
-            </TableView>
-         </children>
-      </VBox>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Books">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="289.0" prefWidth="731.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#chooseBookImage" prefHeight="29.0" prefWidth="109.0" text="Choose Cover">
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <TextField fx:id="bookname" promptText="Book Name">
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="bookauthor" promptText="Author Name">
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="bookgenre" promptText="Genre">
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="bookprice" prefHeight="29.0" prefWidth="96.0" promptText="Price">
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#addBook" text="Add Book">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <TableView fx:id="bookTable">
+                          <columns>
+                            <TableColumn fx:id="bookColumn" minWidth="-1.0" prefWidth="217.0" text="Book" />
+                            <TableColumn fx:id="authorColumn" minWidth="-1.0" prefWidth="226.0" text="Author" />
+                              <TableColumn fx:id="genreColumn" minWidth="-1.0" prefWidth="132.0" text="Genre" />
+                              <TableColumn fx:id="priceColumn" minWidth="-1.0" prefWidth="155.0" text="Price" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab text="Users">
+            <content>
+                  <TableView fx:id="userTable">
+                     <columns>
+                        <TableColumn fx:id="username" minWidth="-1.0" prefWidth="130.0" text="User Name" />
+                        <TableColumn fx:id="firstname" minWidth="-1.0" prefWidth="153.0" text="First Name" />
+                        <TableColumn fx:id="lastname" minWidth="-1.0" prefWidth="145.0" text="Last Name" />
+                        <TableColumn fx:id="email" minWidth="-1.0" prefWidth="137.0" text="Email" />
+                        <TableColumn fx:id="address" minWidth="-1.0" prefWidth="151.0" text="Address" />
+                        <TableColumn fx:id="phone" minWidth="-1.0" prefWidth="114.0" text="Phone No." />
+                     </columns>
+                  </TableView>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </center>
 </BorderPane>
