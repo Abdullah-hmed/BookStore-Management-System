@@ -18,6 +18,9 @@ public class User {
     private String email = "NULL";
     private String address = "NULL";
     private String phone;
+
+    public User() {
+    }
           
           
     public User(String username, String password) {
@@ -33,6 +36,14 @@ public class User {
         this.email = email;
         this.address = address;
         this.phone = phone;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getUsername() {

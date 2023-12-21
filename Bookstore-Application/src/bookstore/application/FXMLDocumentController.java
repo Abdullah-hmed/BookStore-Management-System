@@ -91,7 +91,14 @@ public class FXMLDocumentController implements Initializable {
     public ContextMenu contextMenu;
     
     @FXML
+    private MenuItem signIn;
+    
+    @FXML
     private MenuItem logout;
+    
+    @FXML
+    private MenuItem viewCart;
+
     
     @FXML
     private HBox cardLayoutMP;
@@ -137,13 +144,17 @@ public class FXMLDocumentController implements Initializable {
     }
     
     public void showLogoutMenu(){
+        signIn.setVisible(false);
+        viewCart.setVisible(true);
         logout.setVisible(true);
     }
     
     public void logoutAccount(){
         loggedIn = false;
         logout.setVisible(false);
+        viewCart.setVisible(false);
         UserButton.setText("Guest");
+        signIn.setVisible(true);
         System.out.println("Logged Out!");
     }
     
@@ -237,7 +248,11 @@ public class FXMLDocumentController implements Initializable {
         loadAndSetCenter("ChildrensBooks.fxml", searchBar.getText(), "search");
     }
 
-    
+    public void viewCart() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CartFXML.fxml"));
+        Parent root = loader.load();
+        borderPane.setCenter(root);
+    }
     
     
 }

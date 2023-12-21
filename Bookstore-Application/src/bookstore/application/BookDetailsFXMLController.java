@@ -7,6 +7,7 @@ package bookstore.application;
 
 import bookstore.application.Model.Database;
 import bookstore.application.user.User;
+import com.jfoenix.controls.JFXSlider;
 import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -45,6 +47,9 @@ public class BookDetailsFXMLController implements Initializable {
     
     @FXML
     private Label bookAddedLabel;
+        
+    @FXML
+    private TextField amount;
     
     Database database = new Database();
     int userID = database.getUserID();
@@ -52,9 +57,14 @@ public class BookDetailsFXMLController implements Initializable {
     @FXML
     void addToCart(MouseEvent event) throws InterruptedException {
         FXMLDocumentController controller = FXMLDocumentController.getInstance();
+        int bookAmount = 1;
         if(controller.loggedIn){
             System.out.println(userID+", "+bookID);
-            //database.addToCart(userID, bookID);
+            bookAmount = Integer.parseInt(amount.getText().trim());
+            if(amount.getText().isEmpty()){
+                bookAmount = 1;
+            }
+            database.addToCart(bookID, bookAmount);
             bookAddedLabel.setVisible(true);
         }else{
             bookAddedLabel.setVisible(true);

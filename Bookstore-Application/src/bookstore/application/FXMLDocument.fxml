@@ -162,7 +162,8 @@
                <contextMenu>
                   <ContextMenu fx:id="contextMenu">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#loginUser" text="Sign In" />
+                        <MenuItem fx:id="signIn" mnemonicParsing="false" onAction="#loginUser" text="Sign In" />
+                        <MenuItem fx:id="viewCart" mnemonicParsing="false" onAction="#viewCart" text="View Cart" visible="false" />
                         <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#logoutAccount" text="Log out" visible="false" />
                      </items>
                   </ContextMenu>

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,15 +29,21 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="priceLabel" layoutX="263.0" layoutY="214.0" text="Price">
+      <Label fx:id="priceLabel" layoutX="263.0" layoutY="212.0" text="Price">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton layoutX="263.0" layoutY="277.0" onMouseClicked="#addToCart" prefHeight="54.0" prefWidth="288.0" ripplerFill="#00ff11" style="-fx-background-color: lightgreen;" text="Add to Cart" />
-      <Label fx:id="bookAddedLabel" layoutX="310.0" layoutY="342.0" text="Book has been added to Cart!" textFill="#00971c">
+      <JFXButton layoutX="263.0" layoutY="290.0" onMouseClicked="#addToCart" prefHeight="54.0" prefWidth="333.0" ripplerFill="#00ff11" style="-fx-background-color: lightgreen;" text="Add to Cart" />
+      <Label fx:id="bookAddedLabel" layoutX="332.0" layoutY="352.0" text="Book has been added to Cart!" textFill="#00971c">
          <font>
             <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="amount" layoutX="330.0" layoutY="248.0" prefHeight="29.0" prefWidth="32.0" text="1" />
+      <Label layoutX="263.0" layoutY="249.0" prefHeight="27.0" prefWidth="67.0" text="Amount">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>

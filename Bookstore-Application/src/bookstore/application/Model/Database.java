@@ -1,5 +1,6 @@
 package bookstore.application.Model;
 
+import Cart.Cart;
 import bookstore.application.FXMLDocumentController;
 import bookstore.application.user.User;
 import java.io.ByteArrayInputStream;
@@ -101,6 +102,26 @@ public class Database {
         }
 
         return userList;
+    }
+    
+    public List<Cart> retrieveCart() {
+        System.out.println(getUserID());
+        List<Cart> cartList = new ArrayList<>();
+        String query = "select books.BookID, books.BookName, books.Author, books.Genre, books.Price, Cart.amount FROM books INNER JOIN Cart ON Cart.BookID = books.BookID WHERE Cart.UserID = ?;";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, userID);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {                
+                cartList.add(new Cart(resultSet.getInt("BookID"),resultSet.getString("BookName"), resultSet.getString("Author"),resultSet.getString("genre"),resultSet.getInt("Price"),resultSet.getInt("amount")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return cartList;
     }
     
     public boolean addBook(File picture, String bookName, String bookAuthor, String bookGenre, float bookPrice) throws IOException{
@@ -207,9 +228,9 @@ public class Database {
         return false;
     }
 
-    public int userID;
+    public static int userID;
 
-    public int getUserID() {
+    public static int getUserID() {
         return userID;
     }
     
@@ -243,13 +264,14 @@ public class Database {
         }
     }
     
-    public boolean addToCart(int userID, int bookID){
-        String selectQuery = "INSERT INTO Cart (UserID, BookID) VALUES (?, ?);";
+    public boolean addToCart(int bookID, int amount){
+        String selectQuery = "INSERT INTO Cart (UserID, BookID, amount) VALUES (?, ?, ?);";
         
         try (Connection connection = connect();
             PreparedStatement statement = connection.prepareStatement(selectQuery)) {
             statement.setInt(1, userID);
             statement.setInt(2, bookID);
+            statement.setInt(3, amount);
             
             int rowsAffected = statement.executeUpdate();
             
@@ -262,5 +284,87 @@ public class Database {
         return false;
     }
 
+    public void createOrder(){
+        int orderID = 0;
+        int totalCost = 0;
+        List<Cart> cartList = new ArrayList<>();
+        String cartRetrievalQuery = "select Cart.BookID, books.Price, amount FROM Cart JOIN books on Cart.BookID = books.BookID WHERE UserID = ?;";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(cartRetrievalQuery)) {
+            statement.setInt(1, userID);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {                
+                cartList.add(new Cart(resultSet.getInt("BookID"),resultSet.getInt("Price"),resultSet.getInt("amount")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        for (Cart cartItem : cartList) {
+            totalCost += cartItem.getBookPrice() * cartItem.getAmount();
+        }
+        
+        System.out.println("Total Cost: "+totalCost);
+        
+        String orderCreationQuery = "INSERT INTO orders (UserID, OrderDate, Price) VALUES (?, CURRENT_TIMESTAMP, ?)";
+                
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(orderCreationQuery,PreparedStatement.RETURN_GENERATED_KEYS)) {
+            statement.setInt(1, userID);
+            statement.setInt(2, totalCost);
+            statement.executeUpdate();
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                    orderID = generatedKeys.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        
+        String OrderItemsQuery = "INSERT INTO orderitems (OrderID, BookID, amount) VALUES (?, ?, ?)";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(OrderItemsQuery)) {
+            for (Cart book : cartList) {
+                statement.setInt(1, orderID);
+                statement.setInt(2, book.getBookID());
+                statement.setInt(3, book.getAmount());
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        String cartEmptyingQuery = "DELETE FROM Cart WHERE UserID = ?;";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(cartEmptyingQuery)) {
+            statement.setInt(1, userID);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
+    public List<Cart> createBill(){
+        List<Cart> cartList = new ArrayList<>();
+        String query = "select books.BookName, books.Price, orderitems.amount, orderitems.amount*books.Price as 'Total' FROM orderitems JOIN books ON books.BookID = orderitems.BookID JOIN orders on orderitems.OrderID = orders.OrderID JOIN users on users.UserID = orders.UserID WHERE users.UserID = "+userID+";";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(query)) {
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {                
+                cartList.add(new Cart(resultSet.getString("BookName"), resultSet.getInt("Price"), resultSet.getInt("amount") ,resultSet.getInt("Total")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return cartList;
+    }
 }

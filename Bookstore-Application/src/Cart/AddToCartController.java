@@ -50,7 +50,7 @@ public class AddToCartController {
     @FXML
     private void handleAddToCartButtonAction() {
         // Add the selected book to the cart
-        cart.addToCart(book);
+        
 
         // Show a confirmation message to the user
         Alert alert = new Alert(AlertType.INFORMATION);

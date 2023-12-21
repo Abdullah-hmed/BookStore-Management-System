@@ -82,7 +82,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <TableView fx:id="bookTable">
+                        <TableView fx:id="bookTable" prefHeight="566.0" prefWidth="731.0">
                           <columns>
                             <TableColumn fx:id="bookColumn" minWidth="-1.0" prefWidth="217.0" text="Book" />
                             <TableColumn fx:id="authorColumn" minWidth="-1.0" prefWidth="226.0" text="Author" />
@@ -96,7 +96,7 @@
           </Tab>
           <Tab text="Users">
             <content>
-                  <TableView fx:id="userTable">
+                  <TableView fx:id="userTable" prefHeight="566.0" prefWidth="731.0">
                      <columns>
                         <TableColumn fx:id="username" minWidth="-1.0" prefWidth="130.0" text="User Name" />
                         <TableColumn fx:id="firstname" minWidth="-1.0" prefWidth="153.0" text="First Name" />

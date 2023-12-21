@@ -16,26 +16,104 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    private List<Book> items;
+    int BookID;
+    String BookName;
+    String BookAuthor;
+    String BookGenre;
+    int BookPrice;
+    int amount;
+    int totalPrice;
+    int total;
+    
 
-    public Cart() {
-        items = new ArrayList<>();
+    public Cart(int BookID, String BookName, String BookAuthor, String BookGenre, int BookPrice, int amount) {
+        this.BookID = BookID;
+        this.BookName = BookName;
+        this.BookAuthor = BookAuthor;
+        this.BookGenre = BookGenre;
+        this.BookPrice = BookPrice;
+        this.amount = amount;
     }
 
-    public void addToCart(Book book) {
-        items.add(book);
+    public Cart(int BookID, int BookPrice, int amount) {
+        this.BookID = BookID;
+        this.BookPrice = BookPrice;
+        this.amount = amount;
     }
 
-    public void removeFromCart(Book book) {
-        items.remove(book);
+    public Cart(String BookName, int BookPrice, int amount, int total) {
+        this.BookName = BookName;
+        this.BookPrice = BookPrice;
+        this.amount = amount;
+        this.total = total;
     }
 
-    public List<Book> getItems() {
-        return items;
+    
+    
+    public int getTotal() {
+        return total;
     }
 
-    public void clearCart() {
-        items.clear();
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    
+
+    public int getTotalPrice() {
+        return BookPrice*amount;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public int getBookID() {
+        return BookID;
+    }
+
+    public void setBookID(int BookID) {
+        this.BookID = BookID;
+    }
+    
+    public String getBookName() {
+        return BookName;
+    }
+
+    public void setBookName(String BookName) {
+        this.BookName = BookName;
+    }
+
+    public String getBookAuthor() {
+        return BookAuthor;
+    }
+
+    public void setBookAuthor(String BookAuthor) {
+        this.BookAuthor = BookAuthor;
+    }
+
+    public String getBookGenre() {
+        return BookGenre;
+    }
+
+    public void setBookGenre(String BookGenre) {
+        this.BookGenre = BookGenre;
+    }
+
+    public int getBookPrice() {
+        return BookPrice;
+    }
+
+    public void setBookPrice(int BookPrice) {
+        this.BookPrice = BookPrice;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
 
