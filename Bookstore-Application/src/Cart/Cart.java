@@ -24,7 +24,7 @@ public class Cart {
     int amount;
     int totalPrice;
     int total;
-    
+    String date;
 
     public Cart(int BookID, String BookName, String BookAuthor, String BookGenre, int BookPrice, int amount) {
         this.BookID = BookID;
@@ -47,8 +47,21 @@ public class Cart {
         this.amount = amount;
         this.total = total;
     }
-
     
+    public Cart(int BookID, String BookName, int BookPrice, String date){
+        this.BookID = BookID;
+        this.BookName = BookName;
+        this.BookPrice = BookPrice;
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
     
     public int getTotal() {
         return total;

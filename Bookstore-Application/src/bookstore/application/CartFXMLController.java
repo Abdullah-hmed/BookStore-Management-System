@@ -74,9 +74,24 @@ public class CartFXMLController implements Initializable {
         cartTable.setItems(observableCartlist);
     }
     
+        
+    public void removeFromCart(){
+        int selectedID = cartTable.getSelectionModel().getSelectedIndex();
+        
+        Cart BookToBeRemoved = cartTable.getItems().get(selectedID);
+        int BookID = BookToBeRemoved.getBookID();
+        System.out.println(BookID);
+        boolean bookRemoved = database.removeFromCart(BookID);
+        
+        if(bookRemoved){
+            cartTable.getItems().remove(selectedID);
+        }
+    }
+    
     
     public void checkout() throws IOException{
         database.createOrder();
+        loadCart();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("billFXML.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();

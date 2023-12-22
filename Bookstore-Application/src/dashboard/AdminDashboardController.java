@@ -1,5 +1,6 @@
 package dashboard;
 
+import Cart.Cart;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import bookstore.application.Model.Book;
@@ -59,6 +60,21 @@ public class AdminDashboardController implements Initializable{
 
     @FXML
     private TableColumn<User, String> phone;
+    
+    @FXML
+    private TableView<Cart> orderTable;
+
+    @FXML
+    private TableColumn<Cart, Integer> orderID;
+
+    @FXML
+    private TableColumn<Cart, String> orderName;
+
+    @FXML
+    private TableColumn<Cart, Float> orderPrice;
+
+    @FXML
+    private TableColumn<Cart, String> orderDate;
     
     @FXML
     private TextField bookname;
@@ -136,6 +152,23 @@ public class AdminDashboardController implements Initializable{
         new Thread(task).start();
     }
     
+    private void loadOrders() {
+        Task<List<Cart>> task = new Task<List<Cart>>() {
+            @Override
+            protected List<Cart> call() throws Exception {
+                return database.Orderlist();
+            }
+        };
+
+        task.setOnSucceeded(event -> {
+            List<Cart> userList = task.getValue();
+            ObservableList<Cart> observableOrderlist = FXCollections.observableArrayList(userList);
+            orderTable.setItems(observableOrderlist);
+        });
+
+        new Thread(task).start();
+    }
+    
     public void addBook() throws IOException{
         BookName = bookname.getText();
         BookAuthor = bookauthor.getText();
@@ -162,7 +195,16 @@ public class AdminDashboardController implements Initializable{
         email.setCellValueFactory(new PropertyValueFactory<>("Email"));
         address.setCellValueFactory(new PropertyValueFactory<>("Address"));
         phone.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+        
+        orderID.setCellValueFactory(new PropertyValueFactory<>("BookID"));
+        orderName.setCellValueFactory(new PropertyValueFactory<>("BookName"));
+        orderPrice.setCellValueFactory(new PropertyValueFactory<>("BookPrice"));
+        orderDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        
         loadBooks();
         loadUsers();
+        loadOrders();
     }
+
+    
 }

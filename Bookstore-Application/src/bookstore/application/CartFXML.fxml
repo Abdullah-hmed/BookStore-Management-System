@@ -4,6 +4,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.application.CartFXMLController">
@@ -20,10 +21,19 @@
       </TableView>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#checkout" text="Checkout" BorderPane.alignment="CENTER_RIGHT">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Button>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="430.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#removeFromCart" prefHeight="51.0" prefWidth="256.0" text="Remove From Cart">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#checkout" text="Checkout">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </bottom>
 </BorderPane>

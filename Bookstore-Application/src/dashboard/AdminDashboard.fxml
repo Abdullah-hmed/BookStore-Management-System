@@ -108,6 +108,18 @@
                   </TableView>
             </content>
           </Tab>
+            <Tab text="Orders">
+               <content>
+                  <TableView fx:id="orderTable" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn fx:id="orderID" prefWidth="75.0" text="Order ID" />
+                      <TableColumn fx:id="orderName" prefWidth="310.0" text="UserName" />
+                      <TableColumn fx:id="orderPrice" minWidth="0.0" prefWidth="205.0" text="Price" />
+                        <TableColumn fx:id="orderDate" prefWidth="240.0" text="Order Date" />
+                    </columns>
+                  </TableView>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </center>

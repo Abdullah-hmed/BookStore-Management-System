@@ -104,6 +104,26 @@ public class Database {
         return userList;
     }
     
+    
+    
+    public List<Cart> Orderlist() {
+        List<Cart> orderList = new ArrayList<>();
+        String query = "select orders.OrderID, users.Username, orders.Price, orders.OrderDate from orders JOIN users ON users.UserID = orders.UserID;";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(query)) {
+            ResultSet resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                orderList.add(new Cart(resultSet.getInt("OrderID"), resultSet.getString("Username"), resultSet.getInt("Price"), resultSet.getString("OrderDate")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return orderList;
+    }
+    
     public List<Cart> retrieveCart() {
         System.out.println(getUserID());
         List<Cart> cartList = new ArrayList<>();
@@ -122,6 +142,21 @@ public class Database {
         }
 
         return cartList;
+    }
+    
+    public boolean removeFromCart(int bookID){
+        String cartEmptyingQuery = "Delete FROM Cart WHERE UserID = ? AND BookID = ?;";
+        
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(cartEmptyingQuery)) {
+            statement.setInt(1, userID);
+            statement.setInt(2, bookID);
+            int rowsAffected = statement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
     
     public boolean addBook(File picture, String bookName, String bookAuthor, String bookGenre, float bookPrice) throws IOException{
@@ -283,9 +318,9 @@ public class Database {
         }
         return false;
     }
-
+    public static int orderID = 0;
     public void createOrder(){
-        int orderID = 0;
+        //int orderID = 0;
         int totalCost = 0;
         List<Cart> cartList = new ArrayList<>();
         String cartRetrievalQuery = "select Cart.BookID, books.Price, amount FROM Cart JOIN books on Cart.BookID = books.BookID WHERE UserID = ?;";
@@ -352,10 +387,12 @@ public class Database {
     
     public List<Cart> createBill(){
         List<Cart> cartList = new ArrayList<>();
-        String query = "select books.BookName, books.Price, orderitems.amount, orderitems.amount*books.Price as 'Total' FROM orderitems JOIN books ON books.BookID = orderitems.BookID JOIN orders on orderitems.OrderID = orders.OrderID JOIN users on users.UserID = orders.UserID WHERE users.UserID = "+userID+";";
+        String query = "select books.BookName, books.Price, orderitems.amount, orderitems.amount*books.Price as 'Total' FROM orderitems JOIN books ON books.BookID = orderitems.BookID JOIN orders on orderitems.OrderID = orders.OrderID JOIN users on users.UserID = orders.UserID WHERE users.UserID = ? AND orders.OrderID = ?;";
         
         try (Connection connection = connect();
             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, userID);
+            statement.setInt(2, orderID);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {                
@@ -366,5 +403,5 @@ public class Database {
         }
 
         return cartList;
-    }
+    } 
 }
