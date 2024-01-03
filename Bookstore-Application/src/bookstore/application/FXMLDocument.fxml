@@ -105,6 +105,19 @@
                   <Insets />
                </VBox.margin>
             </JFXButton>
+            <BorderPane VBox.vgrow="ALWAYS">
+               <left>
+                  <JFXButton onAction="#openFAQ" text=" " BorderPane.alignment="BOTTOM_LEFT">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@faq.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </left>
+            </BorderPane>
          </children>
       </VBox>
    </left>

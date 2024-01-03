@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bookstore.application;
 
 import javafx.application.Application;
@@ -13,10 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-/**
- *
- * @author SC
- */
 public class BookstoreApplication extends Application {
     Screen screen = Screen.getPrimary();
     Rectangle2D bounds = screen.getVisualBounds();
@@ -25,8 +16,8 @@ public class BookstoreApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         //stage.setMinHeight(890);
         //stage.setMinWidth(1315);
@@ -36,17 +27,8 @@ public class BookstoreApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    
-    
-    
-    
-    
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

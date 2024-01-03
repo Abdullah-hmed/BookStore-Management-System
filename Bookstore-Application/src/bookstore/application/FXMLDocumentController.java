@@ -254,5 +254,17 @@ public class FXMLDocumentController implements Initializable {
         borderPane.setCenter(root);
     }
     
+    public void openFAQ() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FAQ.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        FAQController controller = loader.getController();
+        controller.setStage(stage);
+        stage.show();
+    }
     
 }
