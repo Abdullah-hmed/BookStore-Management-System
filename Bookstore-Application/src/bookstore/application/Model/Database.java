@@ -24,6 +24,12 @@ public class Database {
     private final String User = "bookstore_slopecame";
     private final String Password = "37f7394360cac41cc6314d198a1ba4672842b9f6";
     
+    static Database Object = new Database();
+    private Database() { //disabling object instantiation
+    }
+    public static Database getDatabase(){
+        return Object;
+    }
 
     
     

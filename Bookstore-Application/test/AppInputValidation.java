@@ -1,5 +1,6 @@
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,7 +50,7 @@ public class AppInputValidation {
         String username = "laiba";
         String password = "laiba";
         //result values generated here
-        Database database = new Database();
+        Database database = getDatabase();
         boolean result = database.loginUser(username, password);
         
         assertEquals(true, result);

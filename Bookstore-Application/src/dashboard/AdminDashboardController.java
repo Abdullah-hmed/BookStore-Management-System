@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import bookstore.application.user.User;
 import java.io.File;
 import java.io.IOException;
@@ -96,7 +97,7 @@ public class AdminDashboardController implements Initializable{
     byte[] BLOBImage;
     File selectedFile;
     
-    Database database = new Database();
+    Database database = getDatabase();
     
     public void chooseBookImage() throws IOException{
         FileChooser fileChooser = new FileChooser();

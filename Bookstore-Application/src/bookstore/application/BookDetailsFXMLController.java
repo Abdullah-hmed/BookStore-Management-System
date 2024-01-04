@@ -6,6 +6,7 @@
 package bookstore.application;
 
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import bookstore.application.user.User;
 import com.jfoenix.controls.JFXSlider;
 import static java.lang.Thread.sleep;
@@ -51,7 +52,7 @@ public class BookDetailsFXMLController implements Initializable {
     @FXML
     private TextField amount;
     
-    Database database = new Database();
+    Database database = getDatabase();
     int userID = database.getUserID();
     
     @FXML

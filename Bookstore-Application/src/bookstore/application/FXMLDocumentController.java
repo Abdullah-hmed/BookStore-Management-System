@@ -7,6 +7,7 @@ package bookstore.application;
 
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -105,7 +106,7 @@ public class FXMLDocumentController implements Initializable {
     private List<Book> recentlyAdded;
     private List<Book> mostPopular;
     
-    public Database database = new Database();
+    public Database database = getDatabase();
     public boolean loggedIn = false;
     
     @FXML

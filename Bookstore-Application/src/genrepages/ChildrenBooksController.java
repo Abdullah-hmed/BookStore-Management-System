@@ -12,6 +12,7 @@ package genrepages;
 import bookstore.application.CardVertController;
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import bookstore.application.cardController;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class ChildrenBooksController implements Initializable {
     public ListView<String> fictionListView;
     private List<Book> ByGenre;
     public String genre="Childrens-Books";
-    Database database = new Database();
+    Database database = getDatabase();
 
 
     @Override

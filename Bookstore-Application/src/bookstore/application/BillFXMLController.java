@@ -7,6 +7,7 @@ package bookstore.application;
 
 import Cart.Cart;
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -52,7 +53,7 @@ public class BillFXMLController implements Initializable {
     @FXML
     private Label totalprice;
     
-    Database database = new Database();
+    Database database = getDatabase();
     int totalCost = 0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {

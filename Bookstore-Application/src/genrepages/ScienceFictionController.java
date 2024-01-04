@@ -11,6 +11,7 @@ package genrepages;
  */
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import javafx.fxml.Initializable;
@@ -53,7 +54,7 @@ public class ScienceFictionController implements Initializable {
     public ListView<String> fictionListView;
     private List<Book> ByGenre;
     public String genre="Si-Fi";
-    Database database = new Database();
+    Database database = getDatabase();
  
     private List<Book> recentlyAdded;
     @Override

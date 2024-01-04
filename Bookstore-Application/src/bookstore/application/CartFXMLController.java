@@ -8,6 +8,7 @@ package bookstore.application;
 import Cart.Cart;
 import bookstore.application.Model.Book;
 import bookstore.application.Model.Database;
+import static bookstore.application.Model.Database.getDatabase;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -54,7 +55,7 @@ public class CartFXMLController implements Initializable {
     @FXML
     private TableColumn<Cart, Float> totalbookprice;
     
-    Database database = new Database();
+    Database database = getDatabase();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
