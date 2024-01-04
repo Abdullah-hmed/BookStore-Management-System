@@ -409,5 +409,19 @@ public class Database {
         }
 
         return cartList;
-    } 
+    }
+    
+    public boolean CheckBookPresence(String search){ //For unit testing
+        String selectQuery = "SELECT * FROM `books` WHERE BookName LIKE ?;";
+        try (Connection connection = connect();
+            PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+            statement.setString(1, "%"+search+"%");
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return false;
+    }
 }

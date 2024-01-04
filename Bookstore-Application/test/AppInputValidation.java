@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
  * @author stu
  */
 public class AppInputValidation {
-    
+    Database database = getDatabase();
     public AppInputValidation() {
     }
     
@@ -50,9 +50,14 @@ public class AppInputValidation {
         String username = "laiba";
         String password = "laiba";
         //result values generated here
-        Database database = getDatabase();
         boolean result = database.loginUser(username, password);
         
+        assertEquals(true, result);
+    }
+    
+    @Test
+    public void searchValidation(){
+        boolean result = database.CheckBookPresence("The");
         assertEquals(true, result);
     }
 }
